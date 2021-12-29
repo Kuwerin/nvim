@@ -48,6 +48,8 @@ Plug 'ekalinin/Dockerfile.vim'
 
 call plug#end()
 
+let g:ale_linters = {'rust': ['analyzer']}
+
 let g:netrw_liststyle = 3
 
 colorscheme gruvbox
