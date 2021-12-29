@@ -66,12 +66,8 @@ colorscheme gruvbox
 "let ayucolor="mirage"
 "colorscheme ayu
 
-
-
 " turn off search highlight
 nnoremap ,<space> :nohlsearch<CR>
-
-
 
 lua << EOF
 -- Set completeopt to have a better completion experience
@@ -127,8 +123,6 @@ cmp.setup {
   },
 }
 EOF
-
-
 
 
 lua << EOF
