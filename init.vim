@@ -43,6 +43,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 " EditorConfig plug
 Plug 'editorconfig/editorconfig-vim'
 
+" Dockerfile.* highlight
+Plug 'ekalinin/Dockerfile.vim'
+
 call plug#end()
 
 let g:netrw_liststyle = 3
