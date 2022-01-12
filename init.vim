@@ -15,6 +15,8 @@ filetype indent on      " load filetype-specific indent files
 inoremap jk <esc>
 nmap zj o<Esc>k
 nmap zk O<Esc>j
+nmap zl V>
+nmap zh V<
 
 
 call plug#begin('~/.vim/plugged')
