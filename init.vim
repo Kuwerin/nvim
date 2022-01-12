@@ -259,8 +259,8 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gw :Bclose<cr>
 
-set colorcolumn=79 " for python according pep
-"set colorcolumn=120 " for golang
+"set colorcolumn=79 " for python according pep
+set colorcolumn=120 " for golang
 
 " run current script with python3 by CTRL+R in command and insert mode
 autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
