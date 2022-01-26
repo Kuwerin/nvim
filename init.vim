@@ -10,6 +10,9 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set fileformat=unix
+set splitbelow
+set splitright
+set diffopt=vertical
 filetype indent on      " load filetype-specific indent files
 
 inoremap jk <esc>
@@ -26,6 +29,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'tpope/vim-fugitive'
 
 
 " color schemas
