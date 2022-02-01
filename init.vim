@@ -1,4 +1,4 @@
-set mouse=a  " enable mouse
+set mouse-=a  " disable mouse
 set encoding=utf-8
 set number
 set noswapfile
@@ -13,6 +13,9 @@ set fileformat=unix
 set splitbelow
 set splitright
 set diffopt=vertical
+set wrap
+set fo-=tc
+
 filetype indent on      " load filetype-specific indent files
 
 inoremap jk <esc>
