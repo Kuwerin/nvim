@@ -19,6 +19,7 @@ set fo-=tc
 filetype indent on      " load filetype-specific indent files
 
 inoremap jk <esc>
+inoremap JK <Esc>
 nmap zj o<Esc>k
 nmap zk O<Esc>j
 nmap zl V>
@@ -270,5 +271,5 @@ map gw :Bclose<cr>
 set colorcolumn=120 " for golang
 
 " run current script with python3 by CTRL+R in command and insert mode
-autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+" autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+" autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
