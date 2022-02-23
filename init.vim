@@ -34,13 +34,21 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'tpope/vim-fugitive'
+Plug 'mbbill/undotree'
 
+" Tree
+Plug 'scrooloose/nerdtree'
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
 Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim'
+
+" Transparent Nvim
+" Plug 'tribela/vim-transparent'
 
 " Search in project
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -57,6 +65,34 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim'
 
 call plug#end()
+
+" NERDTree conf
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+let g:NERDTreeShowHidden=1
+
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>f :Rg<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+
+
+nnoremap <leader>p :NERDTreeToggle<Enter>
 
 let g:ale_linters = {'rust': ['analyzer']}
 
@@ -267,8 +303,8 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gw :Bclose<cr>
 
-"set colorcolumn=79 " for python according pep
-set colorcolumn=120 " for golang
+set colorcolumn=79 " for python according pep
+"set colorcolumn=120 " for golang
 
 " run current script with python3 by CTRL+R in command and insert mode
 " autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
