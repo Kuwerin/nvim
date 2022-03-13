@@ -35,6 +35,11 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+" vim-go is too heavy for my macAir 2015
+Plug 'fatih/vim-go'
+" , { 'do': ':GoUpdateBinaries' }
+
 
 " Tree
 Plug 'scrooloose/nerdtree'
@@ -88,8 +93,9 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>f :Rg<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+
+map <leader>F :Rg<CR>
 
 
 nnoremap <leader>p :NERDTreeToggle<Enter>
