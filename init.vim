@@ -36,9 +36,16 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
-" vim-go is too heavy for my macAir 2015
-Plug 'fatih/vim-go'
-" , { 'do': ':GoUpdateBinaries' }
+
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" auto brackets
+Plug 'jiangmiao/auto-pairs' " pairs for brackets
+Plug 'tpope/vim-surround' "In visual S + some bracket to surround block with brackets
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 
 " Tree
@@ -71,6 +78,22 @@ Plug 'ekalinin/Dockerfile.vim'
 
 call plug#end()
 
+" vim-airline(powerline)-conf
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline_theme='tomorrow'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+let g:airline_symbols.colnr = ' ㏇:'
+
+
+" vim-go conf
+let g:go_fmt_command = 'gofmt'
+
+let g:go_imports_autosave = 0
+let g:go_fmt_autosave = 0
+
 " NERDTree conf
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -89,11 +112,16 @@ let g:NERDTreeShowHidden=1
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+" tmux integration
+vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
+nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
+
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>G :Gdiffsplit<CR>
 
 map <leader>F :Rg<CR>
 
