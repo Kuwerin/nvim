@@ -88,12 +88,6 @@ if !exists('g:airline_symbols')
 let g:airline_symbols.colnr = ' ㏇:'
 
 
-" vim-go conf
-let g:go_fmt_command = 'gofmt'
-
-let g:go_imports_autosave = 0
-let g:go_fmt_autosave = 0
-
 " NERDTree conf
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -131,6 +125,15 @@ nnoremap <leader>p :NERDTreeToggle<Enter>
 let g:ale_linters = {'rust': ['analyzer']}
 
 let g:netrw_liststyle = 3
+
+" vim-go conf
+let g:go_fmt_command = 'gofmt'
+
+let g:go_imports_autosave = 1
+let g:go_fmt_autosave = 1
+
+nnoremap <leader>tf :GoTestFunc<CR>
+nnoremap <leader>tm :GoTest<CR>
 
 colorscheme gruvbox
 "colorscheme OceanicNext
