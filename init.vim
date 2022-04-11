@@ -106,18 +106,20 @@ let g:NERDTreeShowHidden=1
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-" tmux integration
-vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
-nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
-
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>G :Gdiffsplit<CR>
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
 
 map <leader>F :Rg<CR>
+
+" tmux integration
+vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
+nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
 
 
 nnoremap <leader>p :NERDTreeToggle<Enter>
