@@ -106,23 +106,23 @@ let g:NERDTreeShowHidden=1
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>G :Gdiffsplit<CR>
-nnoremap <silent> <leader>+ :vertical resize +5<CR>
-nnoremap <silent> <leader>- :vertical resize -5<CR>
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
+nnoremap <silent> <leader>u :UndotreeShow<CR>
+nnoremap <silent> <leader>G :Gdiffsplit<CR>
+nnoremap <silent> <leader>L :vertical resize +5<CR>
+nnoremap <silent> <leader>H :vertical resize -5<CR>
 
-map <leader>F :Rg<CR>
+map <silent> <leader>F :Rg<CR>
 
 " tmux integration
 vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
 nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
 
 
-nnoremap <leader>p :NERDTreeToggle<Enter>
+nnoremap <silent> <leader>p :NERDTreeToggle<Enter>
 
 let g:ale_linters = {'rust': ['analyzer']}
 
@@ -134,8 +134,8 @@ let g:go_fmt_command = 'gofmt'
 let g:go_imports_autosave = 1
 let g:go_fmt_autosave = 1
 
-nnoremap <leader>tf :GoTestFunc<CR>
-nnoremap <leader>tm :GoTest<CR>
+nnoremap <silent> <leader>tf :GoTestFunc<CR>
+nnoremap <silent> <leader>tm :GoTest<CR>
 
 colorscheme gruvbox
 "colorscheme OceanicNext
@@ -154,7 +154,7 @@ colorscheme gruvbox
 "colorscheme ayu
 
 " turn off search highlight
-nnoremap ,<space> :nohlsearch<CR>
+nnoremap <silent> ,<space> :nohlsearch<CR>
 
 lua << EOF
 -- Set completeopt to have a better completion experience
