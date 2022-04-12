@@ -112,8 +112,10 @@ nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeShow<CR>
 nnoremap <silent> <leader>G :Gdiffsplit<CR>
-nnoremap <silent> <leader>L :vertical resize +5<CR>
-nnoremap <silent> <leader>H :vertical resize -5<CR>
+nnoremap <silent> <leader>L :vertical resize -5<CR>
+nnoremap <silent> <leader>H :vertical resize +5<CR>
+nnoremap <silent> <leader>J :resize +5<CR>
+nnoremap <silent> <leader>K :resize -5<CR>
 
 map <silent> <leader>F :Rg<CR>
 
