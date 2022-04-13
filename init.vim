@@ -116,6 +116,7 @@ nnoremap <silent> <leader>L :vertical resize +5<CR>
 nnoremap <silent> <leader>H :vertical resize -5<CR>
 nnoremap <silent> <leader>J :resize -5<CR>
 nnoremap <silent> <leader>K :resize +5<CR>
+nnoremap <silent> <leader>cs :set ic!<CR>
 
 map <silent> <leader>F :Rg<CR>
 
