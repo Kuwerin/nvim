@@ -124,6 +124,11 @@ map <silent> <leader>F :Rg<CR>
 vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
 nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
 
+" git integration
+nnoremap <leader>gs :Git status<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>ga :Git add 
 
 nnoremap <silent> <leader>p :NERDTreeToggle<Enter>
 
@@ -170,7 +175,7 @@ local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 cmp.setup {
   completion = {
-    autocomplete = false
+    autocomplete = true
   },
   snippet = {
     expand = function(args)
