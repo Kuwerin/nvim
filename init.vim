@@ -111,7 +111,6 @@ nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeShow<CR>
-nnoremap <silent> <leader>G :Gdiffsplit<CR>
 nnoremap <silent> <leader>L :vertical resize +5<CR>
 nnoremap <silent> <leader>H :vertical resize -5<CR>
 nnoremap <silent> <leader>J :resize -5<CR>
@@ -125,10 +124,12 @@ vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
 nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
 
 " git integration
-nnoremap <leader>gs :Git status<CR>
-nnoremap <leader>gc :Git commit<CR>
-nnoremap <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gs :Git status<CR>
+nnoremap <silent> <leader>gc :Git commit<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <leader>ga :Git add 
+nnoremap <silent> <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>Gd :Gdiffsplit 
 
 nnoremap <silent> <leader>p :NERDTreeToggle<Enter>
 
@@ -144,6 +145,7 @@ let g:go_fmt_autosave = 1
 
 nnoremap <silent> <leader>tf :GoTestFunc<CR>
 nnoremap <silent> <leader>tm :GoTest<CR>
+nnoremap <silent> <leader>ie :GoIfErr<CR>
 
 colorscheme gruvbox
 "colorscheme OceanicNext
