@@ -37,10 +37,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
-
-Plug 'edkolev/tmuxline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " auto brackets
 Plug 'jiangmiao/auto-pairs' " pairs for brackets
@@ -53,16 +50,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdtree'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" color schemas
-Plug 'morhetz/gruvbox'  " colorscheme gruvbox
-Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'ayu-theme/ayu-vim'
-
-" Transparent Nvim
-" Plug 'tribela/vim-transparent'
-
+"
 " Search in project
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -73,6 +61,21 @@ Plug 'maxmellon/vim-jsx-pretty'
 
 " EditorConfig plug
 Plug 'editorconfig/editorconfig-vim'
+
+" -- Visual stuff -- 
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'stevearc/aerial.nvim'
+
+" color schemas
+Plug 'morhetz/gruvbox'  " colorscheme gruvbox
+Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'ayu-theme/ayu-vim'
+
+" Transparent Nvim
+Plug 'tribela/vim-transparent'
 
 " Dockerfile.* highlight
 Plug 'ekalinin/Dockerfile.vim'
@@ -120,6 +123,9 @@ nnoremap <silent> <leader>cs :set ic!<CR>
 
 map <silent> <leader>F :Rg<CR>
 
+" aerial conf
+nnoremap <silent> <leader>s :AerialToggle float<CR>
+"
 " tmux integration
 vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
 nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
@@ -171,12 +177,66 @@ lua << EOF
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- aerial setup
+require('aerial').setup({
+  nerd_font="auto",
+  -- Show box drawing characters for the tree hierarchy
+  show_guides = true,
+  guides = {
+    -- When the child item has a sibling below it
+    mid_item = "├─",
+    -- When the child item is the last in the list
+    last_item = "└─",
+    -- When there are nested child guides to the right
+    nested_top = "│ ",
+    -- Raw indentation
+    whitespace = "  ",
+  },
+  filter_kind = false,
+  float = {
+    -- Controls border appearance. Passed to nvim_open_win
+    border = "rounded",
+
+    -- Enum: cursor, editor, win
+    --   cursor - Opens float on top of the cursor
+    --   editor - Opens float centered in the editor
+    --   win    - Opens float centered in the window
+    relative = "cursor",
+
+    -- These control the height of the floating window.
+    -- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+    -- min_height and max_height can be a list of mixed types.
+    -- min_height = {8, 0.1} means "the greater of 8 rows or 10% of total"
+    max_height = 0.9,
+    height = nil,
+    min_height = { 8, 0.2 },
+    post_jump_cmd = "normal! zz",
+
+    override = function(conf)
+      -- This is the config that will be passed to nvim_open_win.
+      -- Change values here to customize the layout
+      return conf
+    end,
+  },
+})
+
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
+  window = {
+    completion = { -- rounded border; thin-style scrollbar
+      border = 'rounded',
+      scrollbar = '║',
+    },
+    documentation = { -- no border; native-style scrollbar
+      border = 'rounded',
+      scrollbar = '║',
+    },
+  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -205,6 +265,7 @@ EOF
 
 
 lua << EOF
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -219,7 +280,20 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
+  vim.diagnostic.config({
+    float = {
+      source = 'always',
+      border = 'rounded'
+    },
+  })
 
+  	vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+		vim.lsp.handlers.hover, { 
+            border = 'rounded', 
+            scrollbar = '║',
+            source = 'always',
+            }
+	)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -233,13 +307,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
+
+
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
