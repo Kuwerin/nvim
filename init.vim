@@ -4,6 +4,7 @@ set encoding=utf-8
 set number
 set noswapfile
 set scrolloff=7
+set background=dark
 
 set tabstop=4
 set softtabstop=4
@@ -62,20 +63,27 @@ Plug 'maxmellon/vim-jsx-pretty'
 " EditorConfig plug
 Plug 'editorconfig/editorconfig-vim'
 
+" File structure
+Plug 'stevearc/aerial.nvim'
+
 " -- Visual stuff -- 
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'stevearc/aerial.nvim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'onsails/lspkind.nvim'
 
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/everforest'
+Plug 'arcticicestudio/nord-vim'
 Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim'
 
 " Transparent Nvim
-Plug 'tribela/vim-transparent'
+"Plug 'tribela/vim-transparent'
 
 " Dockerfile.* highlight
 Plug 'ekalinin/Dockerfile.vim'
@@ -90,6 +98,25 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
 let g:airline_symbols.colnr = ' ㏇:'
+
+"colorscheme gruvbox-material
+"colorscheme nord
+"colorscheme everforest
+colorscheme gruvbox
+"colorscheme OceanicNext
+let g:material_terminal_italics = 1
+" variants: default, palenight, ocean, lighter, darker, default-community,
+"           palenight-community, ocean-community, lighter-community,
+"           darker-community
+"let g:material_theme_style = 'darker'
+"colorscheme material
+"if (has('termguicolors'))
+"  set termguicolors
+"endif
+
+" variants: mirage, dark, dark
+"let ayucolor="dark"
+"colorscheme ayu
 
 
 " NERDTree conf
@@ -154,22 +181,6 @@ nnoremap <silent> <leader>tf :GoTestFunc<CR>
 nnoremap <silent> <leader>tm :GoTest<CR>
 nnoremap <silent> <leader>ie :GoIfErr<CR>
 
-colorscheme gruvbox
-"colorscheme OceanicNext
-"let g:material_terminal_italics = 1
-" variants: default, palenight, ocean, lighter, darker, default-community,
-"           palenight-community, ocean-community, lighter-community,
-"           darker-community
-"let g:material_theme_style = 'darker'
-"colorscheme material
-"if (has('termguicolors'))
-"  set termguicolors
-"endif
-
-" variants: mirage, dark, dark
-"let ayucolor="mirage"
-"colorscheme ayu
-
 " turn off search highlight
 nnoremap <silent> ,<space> :nohlsearch<CR>
 
@@ -224,6 +235,8 @@ require('aerial').setup({
 -- luasnip setup
 local luasnip = require 'luasnip'
 
+local lspkind = require 'lspkind'
+
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
@@ -236,6 +249,12 @@ cmp.setup {
       border = 'rounded',
       scrollbar = '║',
     },
+  },
+   formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+    }),
   },
   snippet = {
     expand = function(args)
