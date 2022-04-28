@@ -172,7 +172,7 @@ let g:ale_linters = {'rust': ['analyzer']}
 let g:netrw_liststyle = 3
 
 " vim-go conf
-let g:go_fmt_command = 'gofmt'
+let g:go_fmt_command = 'gopls'
 
 let g:go_imports_autosave = 1
 let g:go_fmt_autosave = 1
