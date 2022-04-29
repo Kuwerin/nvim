@@ -99,10 +99,10 @@ if !exists('g:airline_symbols')
   endif
 let g:airline_symbols.colnr = ' ㏇:'
 
-"colorscheme gruvbox-material
+colorscheme gruvbox-material
 "colorscheme nord
 "colorscheme everforest
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme OceanicNext
 let g:material_terminal_italics = 1
 " variants: default, palenight, ocean, lighter, darker, default-community,
@@ -148,7 +148,7 @@ nnoremap <silent> <leader>J :resize -5<CR>
 nnoremap <silent> <leader>K :resize +5<CR>
 nnoremap <silent> <leader>cs :set ic!<CR>
 
-map <silent> <leader>F :Rg<CR>
+map <silent> <leader>f :Rg<CR>
 
 " aerial conf
 nnoremap <silent> <leader>s :AerialToggle float<CR>
@@ -330,7 +330,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<space>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
 
