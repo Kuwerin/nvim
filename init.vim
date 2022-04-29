@@ -64,6 +64,11 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'editorconfig/editorconfig-vim'
 
 " File structure
+" Aerial and some other plugins(such as nerdtree, cmp) recommend to use
+" nerdfont, that you can install from: https://github.com/lambdalisue/nerdfont.vim Nerd font
+" and set up it to your terminal.
+" My favorite is: JetBrains Mono NL(12, Bold) and Hack Nerd Font(13, Bold) for
+" non-ASCII text
 Plug 'stevearc/aerial.nvim'
 
 " -- Visual stuff -- 
