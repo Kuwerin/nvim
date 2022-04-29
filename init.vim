@@ -1,5 +1,4 @@
 set mouse-=a  " disable mouse
-set scl=number
 set encoding=utf-8
 set number
 set noswapfile
@@ -17,6 +16,7 @@ set splitright
 set diffopt=vertical
 set wrap
 set fo-=tc
+set signcolumn=number
 
 filetype indent on      " load filetype-specific indent files
 
