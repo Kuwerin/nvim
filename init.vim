@@ -146,7 +146,7 @@ nnoremap <silent> <leader>h :wincmd h<CR>
 nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
-nnoremap <silent> <leader>u :UndoTreeToggle<CR>
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <leader>L :vertical resize +5<CR>
 nnoremap <silent> <leader>H :vertical resize -5<CR>
 nnoremap <silent> <leader>J :resize -5<CR>
@@ -181,6 +181,7 @@ let g:go_fmt_command = 'gopls'
 
 let g:go_imports_autosave = 1
 let g:go_fmt_autosave = 1
+let g:go_mod_fmt_autosave = 0
 
 nnoremap <silent> <leader>tf :GoTestFunc<CR>
 nnoremap <silent> <leader>tm :GoTest<CR>
