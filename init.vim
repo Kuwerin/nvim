@@ -172,8 +172,9 @@ nnoremap <leader>ga :Git add
 nnoremap <leader>gco :Git checkout <C-Z><C-P>
 nnoremap <silent> <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>gD :Gdiffsplit <C-Z><C-N>
-nnoremap <leader>gb :Git blame<CR>
+nnoremap <silent> <leader>gb :Git blame<CR>
 nnoremap <leader>gB :Git blame <C-Z><C-N>
+nnoremap <silent> <leader>gP :Git pull<CR>
 
 nnoremap <silent> <leader>p :NERDTreeToggle<CR>
 
