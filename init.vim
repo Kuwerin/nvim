@@ -17,6 +17,7 @@ set diffopt=vertical
 set wrap
 set fo-=tc
 set signcolumn=number
+set wildcharm=<C-z>
 
 filetype indent on      " load filetype-specific indent files
 
@@ -166,11 +167,15 @@ nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
 nnoremap <silent> <leader>gs :Git status<CR>
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <leader>gA :Git add <C-Z><C-P>
 nnoremap <leader>ga :Git add 
+nnoremap <leader>gco :Git checkout <C-Z><C-P>
 nnoremap <silent> <leader>gd :Gdiffsplit<CR>
-nnoremap <leader>Gd :Gdiffsplit 
+nnoremap <leader>gD :Gdiffsplit <C-Z><C-N>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gB :Git blame <C-Z><C-N>
 
-nnoremap <silent> <leader>p :NERDTreeToggle<Enter>
+nnoremap <silent> <leader>p :NERDTreeToggle<CR>
 
 let g:ale_linters = {'rust': ['analyzer']}
 
