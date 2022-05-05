@@ -40,6 +40,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " To use Python remote plugin features in Vim
+Plug 'roxma/nvim-yarp' " needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
+Plug 'roxma/vim-hug-neovim-rpc'
 
 " auto brackets
 Plug 'jiangmiao/auto-pairs' " pairs for brackets
@@ -78,6 +81,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'onsails/lspkind.nvim'
+" Wildmenu
+Plug 'gelguy/wilder.nvim'
 
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
@@ -95,6 +100,45 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'ekalinin/Dockerfile.vim'
 
 call plug#end()
+
+" --- Wilder Plugin setup
+if has('nvim')
+  function! UpdateRemotePlugins(...)
+    " Needed to refresh runtime files
+    let &rtp=&rtp
+    UpdateRemotePlugins
+  endfunction
+
+  Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
+else
+  Plug 'gelguy/wilder.nvim'
+
+  " To use Python remote plugin features in Vim, can be skipped
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Key bindings can be changed, see below
+call wilder#setup({'modes': [':', '/', '?']})
+call wilder#set_option('pipeline', [
+      \   wilder#branch(
+      \     wilder#cmdline_pipeline({'language': has('nvim') ? 'python' : 'vim'}),
+      \     wilder#python_search_pipeline(),
+      \   ),
+      \ ])
+call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+      \ 'highlights': {
+      \   'border': 'Normal',
+      \ },
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ 'left': [
+      \   ' ', wilder#popupmenu_devicons(),
+      \ ],
+      \ 'right': [
+      \   ' ', wilder#popupmenu_scrollbar(),
+      \ ],
+      \ 'border': 'rounded',
+      \ })))
 
 " vim-airline(powerline)-conf
 let g:airline#extensions#tmuxline#enabled = 1
@@ -167,13 +211,12 @@ nnoremap <leader>p :let @0 = system("tmux save-buffer -")<CR>"0p<CR>g;
 nnoremap <silent> <leader>gs :Git status<CR>
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <leader>gA :Git add <C-Z><C-P>
 nnoremap <leader>ga :Git add 
-nnoremap <leader>gco :Git checkout <C-Z><C-P>
+nnoremap <leader>gco :Git checkout 
 nnoremap <silent> <leader>gd :Gdiffsplit<CR>
-nnoremap <leader>gD :Gdiffsplit <C-Z><C-N>
+nnoremap <leader>gD :Gdiffsplit 
 nnoremap <silent> <leader>gb :Git blame<CR>
-nnoremap <leader>gB :Git blame <C-Z><C-N>
+nnoremap <leader>gB :Git blame 
 nnoremap <silent> <leader>gP :Git pull<CR>
 
 nnoremap <silent> <leader>p :NERDTreeToggle<CR>
@@ -197,6 +240,7 @@ nnoremap <silent> <leader>ie :GoIfErr<CR>
 nnoremap <silent> ,<space> :nohlsearch<CR>
 
 lua << EOF
+
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
@@ -443,6 +487,16 @@ map gw :Bclose<cr>
 
 autocmd Filetype python set colorcolumn=79 " for python according pep
 autocmd Filetype gitcommit set colorcolumn=50
+" ++once supported in Nvim 0.4+ and Vim 8.1+
+autocmd CmdlineEnter * ++once call s:wilder_init() | call s:wilder#main#start()
+
+function! s:wilder_init() abort
+  call wilder#setup(...)
+  call wilder#set_option(..., ...)
+
+  call wilder#set_option('pipeline', ...)
+  call wilder#set_option('renderer', ...)
+endfunction
 
 " run current script with python3 by CTRL+R in command and insert mode
 " autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
