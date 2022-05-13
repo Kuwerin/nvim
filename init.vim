@@ -40,6 +40,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
   " To use Python remote plugin features in Vim
 Plug 'roxma/nvim-yarp' " needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -126,6 +127,7 @@ call wilder#set_option('pipeline', [
       \     wilder#python_search_pipeline(),
       \   ),
       \ ])
+
 call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
       \ 'highlights': {
       \   'border': 'Normal',
@@ -212,7 +214,8 @@ nnoremap <silent> <leader>gs :Git status<CR>
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <leader>ga :Git add 
-nnoremap <leader>gco :Git checkout 
+nnoremap <leader>gA :Git add %<CR>
+nnoremap <leader>gCo :Git checkout 
 nnoremap <silent> <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>gD :Gdiffsplit 
 nnoremap <silent> <leader>gb :Git blame<CR>
@@ -230,7 +233,7 @@ let g:go_fmt_command = 'gopls'
 
 let g:go_imports_autosave = 1
 let g:go_fmt_autosave = 1
-let g:go_mod_fmt_autosave = 0
+let g:go_mod_fmt_autosave = 1
 
 nnoremap <silent> <leader>tf :GoTestFunc<CR>
 nnoremap <silent> <leader>tm :GoTest<CR>
