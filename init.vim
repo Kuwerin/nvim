@@ -76,7 +76,7 @@ Plug 'editorconfig/editorconfig-vim'
 " non-ASCII text
 Plug 'stevearc/aerial.nvim'
 
-" -- Visual stuff -- 
+" -- Visual stuff --
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -365,13 +365,14 @@ local on_attach = function(client, bufnr)
     },
   })
 
-  	vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-		vim.lsp.handlers.hover, { 
-            border = 'rounded', 
-            scrollbar = '║',
-            source = 'always',
-            }
-	)
+    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+        vim.lsp.handlers.hover, { 
+          border = 'rounded', 
+          scrollbar = '║',
+          source = 'always',
+          }
+      )
+
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
