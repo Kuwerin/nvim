@@ -142,6 +142,9 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
       \ 'border': 'rounded',
       \ })))
 
+" UndoTree conf
+let g:undotree_SplitWidth=15
+
 " vim-airline(powerline)-conf
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_theme='tomorrow'
