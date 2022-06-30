@@ -41,7 +41,7 @@ Plug 'mbbill/undotree'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  " To use Python remote plugin features in Vim
+" To use Python remote plugin features in Vim
 Plug 'roxma/nvim-yarp' " needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
 Plug 'roxma/vim-hug-neovim-rpc'
 
@@ -143,7 +143,7 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
       \ })))
 
 " UndoTree conf
-let g:undotree_SplitWidth=15
+let g:undotree_SplitWidth=25
 
 " vim-airline(powerline)-conf
 let g:airline#extensions#tmuxline#enabled = 1
@@ -154,10 +154,10 @@ if !exists('g:airline_symbols')
   endif
 let g:airline_symbols.colnr = ' ㏇:'
 
-colorscheme gruvbox-material
+"colorscheme gruvbox-material
 "colorscheme nord
 "colorscheme everforest
-"colorscheme gruvbox
+colorscheme gruvbox
 "colorscheme OceanicNext
 let g:material_terminal_italics = 1
 " variants: default, palenight, ocean, lighter, darker, default-community,
@@ -401,7 +401,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'pyright', 'rust_analyzer', 'gopls'}
+local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
