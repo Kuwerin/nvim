@@ -16,7 +16,7 @@ set splitright
 set diffopt=vertical
 set wrap
 set fo-=tc
-set signcolumn=number
+set signcolumn=yes
 set wildcharm=<C-z>
 
 filetype indent on      " load filetype-specific indent files
@@ -85,6 +85,8 @@ Plug 'onsails/lspkind.nvim'
 " Wildmenu
 Plug 'gelguy/wilder.nvim'
 
+" terminal
+Plug 'numToStr/FTerm.nvim'
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
 Plug 'sainnhe/gruvbox-material'
@@ -206,7 +208,7 @@ nnoremap <silent> <leader>cs :set ic!<CR>
 map <silent> <leader>f :Rg<CR>
 
 " aerial conf
-nnoremap <silent> <leader>s :AerialToggle float<CR>
+nnoremap <silent> <leader>s :AerialToggle right<CR>
 "
 " tmux integration
 vnoremap <leader>y y<CR>:call system("tmux load-buffer -", @0)<CR>gv
@@ -292,6 +294,56 @@ require('aerial').setup({
     end,
   },
 })
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+
+function execCurl()
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local lines = vim.api.nvim_buf_get_lines(0, row-1, vim.api.nvim_buf_line_count(0), false) or {""}
+    local commandLines = ""
+    for k,v in pairs(lines) do
+        if v ~= "" then
+            commandLines = vim.api.nvim_buf_get_lines(0, row-1, row+k-1, false)
+            break
+        end
+    end
+
+    local command = table.concat(commandLines, "\n")
+    command = command:gsub('[%c]', '')
+    vim.cmd('!'..command..'> /tmp/curl-responses/response.json')
+    buf = vim.api.nvim_create_buf(false, true)
+
+    vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
+
+    local width = vim.api.nvim_get_option("columns")
+    local height = vim.api.nvim_get_option("lines")
+
+    local win_height = math.ceil(height * 0.8 - 4)
+    local win_width = math.ceil(width * 0.8)
+
+    local row = math.ceil((height - win_height) / 2 - 1)
+    local col = math.ceil((width - win_width) / 2)
+
+    local opts = {
+        style = "minimal",
+        relative = "editor",
+        width = win_width,
+        height = win_height,
+        row = row,
+        col = col,
+        border = "rounded",
+    }
+
+    win = vim.api.nvim_open_win(buf, true, opts)
+    vim.api.nvim_win_set_option(win, "cursorline", true)
+    vim.api.nvim_buf_set_option(buf, "modifiable", true)
+    vim.cmd(":edit /tmp/curl-responses/response.json")
+    vim.api.nvim_buf_set_option(0, "modifiable", false)
+end
+
+keymap("n", "<S-e>", "<cmd>lua execCurl()<CR>", opts)
 
 
 -- luasnip setup
@@ -397,6 +449,11 @@ local on_attach = function(client, bufnr)
 
 end
 
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
