@@ -298,6 +298,12 @@ require('aerial').setup({
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
+function callEvans()
+    local command = "evans --host localhost --port 5000 -r repol"
+    require('Fterm').run(command)
+end
+
+keymap("n", "<S-x>", "<cmd>lua callEvans()<CR>", opts)
 
 function execCurl()
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -310,9 +316,9 @@ function execCurl()
         end
     end
 
-    local command = table.concat(commandLines, "\n")
+    local command = table.concat(commandLines, " ")
     command = command:gsub('[%c]', '')
-    vim.cmd('!'..command..'> /tmp/curl-responses/response.json')
+    vim.cmd('!'..command..' | jq  > /tmp/curl-responses/response.json')
     buf = vim.api.nvim_create_buf(false, true)
 
     vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
