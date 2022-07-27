@@ -25,7 +25,7 @@ local no_errors, error_msg = pcall(function()
   else
     time = function(chunk, start) end
   end
-  
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -69,10 +69,35 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Dockerfile.vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/Dockerfile.vim",
+    url = "https://github.com/ekalinin/Dockerfile.vim"
+  },
+  ["FTerm.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/FTerm.nvim",
+    url = "https://github.com/numToStr/FTerm.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["aerial.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/aerial.nvim",
+    url = "https://github.com/stevearc/aerial.nvim"
+  },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
+  ["ayu-vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/ayu-vim",
+    url = "https://github.com/ayu-theme/ayu-vim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -84,10 +109,60 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["editorconfig-vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
+    url = "https://github.com/editorconfig/editorconfig-vim"
+  },
+  everforest = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
+  fzf = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["material.vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/material.vim",
+    url = "https://github.com/kaicataldo/material.vim"
+  },
   nerdtree = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/scrooloose/nerdtree"
+  },
+  ["nerdtree-git-plugin"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nerdtree-git-plugin",
+    url = "https://github.com/Xuyuanp/nerdtree-git-plugin"
+  },
+  ["nord-vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nord-vim",
+    url = "https://github.com/arcticicestudio/nord-vim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -104,10 +179,25 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-yarp"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim-yarp",
+    url = "https://github.com/roxma/nvim-yarp"
+  },
+  ["oceanic-next"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/oceanic-next",
+    url = "https://github.com/mhartington/oceanic-next"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["tmuxline.vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/tmuxline.vim",
+    url = "https://github.com/edkolev/tmuxline.vim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
@@ -119,15 +209,45 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-airline",
+    url = "https://github.com/vim-airline/vim-airline"
+  },
+  ["vim-airline-themes"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
+    url = "https://github.com/vim-airline/vim-airline-themes"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-hug-neovim-rpc"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
+    url = "https://github.com/roxma/vim-hug-neovim-rpc"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["vim-toml"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-toml",
     url = "https://github.com/cespare/vim-toml"
+  },
+  ["wilder.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/wilder.nvim",
+    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 
