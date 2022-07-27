@@ -1,7 +1,7 @@
 -- vim.opt.mouse=a  --- disable mouse
 vim.opt.encoding = 'utf-8'
 vim.opt.number = true
-vim.opt.noswapfile = true
+-- vim.opt.noswapfile = true
 vim.opt.scrolloff = 7
 vim.opt.background = 'dark'
 vim.opt.tabstop = 4
@@ -16,6 +16,7 @@ vim.opt.diffopt = 'vertical'
 vim.opt.wrap = true 
 -- vim.opt.fo-=tc
 vim.opt.signcolumn='yes'
-vim.opt.wildcharm='<C-z>'
+vim.cmd("set wildcharm='<C-z>'")
+vim.cmd("filetype indent on")      -- load filetype-specific indent files
 
-vim.cmd(filetype indent on)      " load filetype-specific indent files
+vim.g.mapleader(" ")
