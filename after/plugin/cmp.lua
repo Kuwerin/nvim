@@ -1,4 +1,5 @@
 local lspkind = require 'lspkind'
+
 local cmp = require 'cmp'
 cmp.setup {
   window = {

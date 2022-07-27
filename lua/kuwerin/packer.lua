@@ -7,11 +7,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'onsails/lspkind.nvim'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip'
   use 'tpope/vim-fugitive'
   use 'cespare/vim-toml'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  -- Snippets
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
   -- Undo
   use 'mbbill/undotree'
 
@@ -28,6 +29,9 @@ return require('packer').startup(function(use)
 
   -- Terminal
   use 'numToStr/FTerm.nvim'
+
+  -- Vim-go
+  use 'fatih/vim-go'
 
   -- Editorconfig
   use 'editorconfig/editorconfig-vim'
@@ -61,5 +65,7 @@ return require('packer').startup(function(use)
   use 'mhartington/oceanic-next'
   use 'kaicataldo/material.vim'
   use 'ayu-theme/ayu-vim'
+  use 'junegunn/seoul256.vim'
+  use 'doums/darcula'
 end)
 
