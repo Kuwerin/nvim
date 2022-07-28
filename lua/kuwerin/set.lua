@@ -48,6 +48,7 @@ vim.g.go_fmt_command = 'gopls'
 vim.g.go_imports_autosave = 1
 vim.g.go_fmt_autosave = 1
 vim.g.go_mod_fmt_autosave = 1
+vim.g.go_doc_keywordprg_enabled = 0
 
 -- Undotree setup
 vim.g.undotree_SplitWidth=25
