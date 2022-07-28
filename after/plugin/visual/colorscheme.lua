@@ -6,5 +6,8 @@
 -- OceanicNext
 -- OceanicNextLight
 -- everforest
+-- seoul256
+-- seoul256-light
+-- darcula (JetBrains-like!!)
 vim.opt.background = "dark"
-vim.cmd("colorscheme gruvbox-material")
+vim.cmd("colorscheme darcula")

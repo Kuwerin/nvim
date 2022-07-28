@@ -25,7 +25,7 @@ local no_errors, error_msg = pcall(function()
   else
     time = function(chunk, start) end
   end
-
+  
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -108,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  darcula = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/darcula",
+    url = "https://github.com/doums/darcula"
   },
   ["editorconfig-vim"] = {
     loaded = true,
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["seoul256.vim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/seoul256.vim",
+    url = "https://github.com/junegunn/seoul256.vim"
+  },
   ["tmuxline.vim"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/tmuxline.vim",
@@ -228,6 +238,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
   },
   ["vim-hug-neovim-rpc"] = {
     loaded = true,

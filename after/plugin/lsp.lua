@@ -20,13 +20,21 @@ local on_attach = function(client, bufnr)
   })
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover, { 
-          border = 'rounded', 
+        vim.lsp.handlers.hover, {
+          border = 'rounded',
           scrollbar = '║',
           source = 'always',
           }
       )
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
+end
 
+local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd'}
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
 end

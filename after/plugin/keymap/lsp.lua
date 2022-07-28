@@ -1,6 +1,8 @@
 local Remap = require("kuwerin.keymap")
 local nnoremap = Remap.nnoremap
 
+
+
 nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
