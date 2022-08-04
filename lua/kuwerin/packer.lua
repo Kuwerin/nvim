@@ -11,8 +11,9 @@ return require('packer').startup(function(use)
   use 'cespare/vim-toml'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   -- Snippets
+  use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip'
+  use { 'L3MON4D3/LuaSnip', after = 'friendly-snippets' }
   -- Undo
   use 'mbbill/undotree'
 
@@ -49,12 +50,22 @@ return require('packer').startup(function(use)
   --
   -- Dockerfile.* highlight
   use 'ekalinin/Dockerfile.vim'
+  -- .json highlight
+  use 'elzr/vim-json'
 
   -- Visual
   use 'edkolev/tmuxline.vim'
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
   use 'ryanoasis/vim-devicons'
+
+  -- SQL client
+ use({ "kristijanhusak/vim-dadbod-ui", requires = {
+   "tpope/vim-dadbod",
+   "kristijanhusak/vim-dadbod-completion",
+   "tpope/vim-dotenv",
+  },
+ })
 
   -- Themes
   use 'folke/tokyonight.nvim'

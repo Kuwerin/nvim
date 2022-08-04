@@ -80,8 +80,10 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/FTerm.nvim"
   },
   LuaSnip = {
+    load_after = {},
     loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    needs_bufread = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/opt/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["aerial.nvim"] = {
@@ -123,6 +125,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   fzf = {
     loaded = true,
@@ -229,10 +236,30 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
   },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-completion"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
+    url = "https://github.com/kristijanhusak/vim-dadbod-completion"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
+    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
+  },
+  ["vim-dotenv"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dotenv",
+    url = "https://github.com/tpope/vim-dotenv"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -248,6 +275,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
     url = "https://github.com/roxma/vim-hug-neovim-rpc"
+  },
+  ["vim-json"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-json",
+    url = "https://github.com/elzr/vim-json"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -267,6 +299,11 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd friendly-snippets ]]
+vim.cmd [[ packadd LuaSnip ]]
+time([[Sequenced loading]], false)
 if should_profile then save_profiles() end
 
 end)

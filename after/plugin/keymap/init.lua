@@ -17,11 +17,13 @@ inoremap("JK", "<Esc>")
 inoremap("Jk", "<Esc>")
 nnoremap("zj", "o<Esc>k")
 nnoremap("zk", "O<Esc>j")
+nnoremap("<C-c>", "<C-a>")
 
 -- Toggle helper pannels
 nnoremap("<leader>p", ":NERDTreeToggle<CR>", silent)
 nnoremap("<leader>u", ":UndotreeToggle<CR>", silent)
 nnoremap("<leader>s", ":AerialToggle right<CR>", silent)
+nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
 
 -- Move between windows
 nnoremap("<leader>h", ":wincmd h<CR>", silent)
@@ -37,7 +39,7 @@ nnoremap("gn", ":bnext<CR>", silent)
 nnoremap(",<leader>", ":nohlsearch<CR>", silent)
 
 -- Toggle search case sensitivity
-nnoremap("<leader>cs", ":set ic!CR>", silent)
+nnoremap("<leader>cs", ":set ic!<CR>", silent)
 
 -- Fuzzy project search
 nnoremap("<leader>f", ":Rg<CR>", silent)

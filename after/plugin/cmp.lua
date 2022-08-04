@@ -1,6 +1,17 @@
 local lspkind = require 'lspkind'
-
+local luasnip = require 'luasnip'
 local cmp = require 'cmp'
+
+require('luasnip.loaders.from_vscode').load({
+       paths = { '~/.local/share/nvim/site/pack/packer/start/friendly-snippets' }
+      })
+
+luasnip.config.set_config({
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
+  enable_autosnippets = true,
+})
+
 cmp.setup {
   window = {
     completion = { -- rounded border; thin-style scrollbar
@@ -20,7 +31,7 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
