@@ -54,6 +54,7 @@ vim.g.undotree_SplitWidth=25
 -- SQL client setup
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_show_database_icon = 1
+vim.g.db_ui_show_help = 0
 
 -- Airline setup
 vim.g.airline_powerline_fonts = 1
@@ -69,7 +70,6 @@ vim.cmd("autocmd Filetype gitcommit set colorcolumn=50")
 
 vim.cmd("autocmd FileType json set autoindent")
 vim.cmd("autocmd FileType json set formatoptions=tcq2l")
-vim.cmd("autocmd FileType json set textwidth=78 shiftwidth=2")
 vim.cmd("autocmd FileType json set softtabstop=2 tabstop=8")
 vim.cmd("autocmd FileType json set expandtab")
 vim.cmd("autocmd FileType json set foldmethod=syntax")
