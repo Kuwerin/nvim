@@ -15,7 +15,7 @@ function callCurl()
 
   local filename = os.date("%d-%m-%y_%H:%M:%S").. resource .. ".json"
 
-  vim.cmd('!'..command..' | jq  > ~/.vim/curl/'.. filename)
+  vim.cmd('!'..command..' -s | jq  > ~/.vim/curl/'.. filename)
 
   buf = vim.api.nvim_create_buf(false, true)
 
