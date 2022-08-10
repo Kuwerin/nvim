@@ -47,5 +47,8 @@ nnoremap("<leader>f", ":Rg<CR>", silent)
 -- Execute curl responses and get the response data
 nnoremap("<S-e>", "<cmd>lua callCurl()<CR>", silent)
 
+-- Get curl history
+nnoremap("<leader>c", ":e $CURL_HISTORY_DIR<CR>")
+
 -- Execute evans gRPC responses
 nnoremap("<S-x>", "<cmd>lua callEvans()<CR>", silent)
