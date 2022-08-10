@@ -1,19 +1,29 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Core
+  -- Packer itself
   use 'wbthomason/packer.nvim'
+
+  -- LSP/CMP
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'onsails/lspkind.nvim'
+
+  -- Git plugin
   use 'tpope/vim-fugitive'
-  use 'cespare/vim-toml'
+
+  -- Syntax highlight/AST
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'cespare/vim-toml'
+  use 'ekalinin/Dockerfile.vim'
+  use 'elzr/vim-json'
+
   -- Snippets
   use 'rafamadriz/friendly-snippets'
   use 'saadparwaiz1/cmp_luasnip'
   use { 'L3MON4D3/LuaSnip', after = 'friendly-snippets' }
+
   -- Undo
   use 'mbbill/undotree'
 
@@ -47,17 +57,6 @@ return require('packer').startup(function(use)
 
   -- Wildmenu
   use 'gelguy/wilder.nvim'
-  --
-  -- Dockerfile.* highlight
-  use 'ekalinin/Dockerfile.vim'
-  -- .json highlight
-  use 'elzr/vim-json'
-
-  -- Visual
-  use 'edkolev/tmuxline.vim'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  use 'ryanoasis/vim-devicons'
 
   -- SQL client
  use({ "kristijanhusak/vim-dadbod-ui", requires = {
@@ -66,6 +65,12 @@ return require('packer').startup(function(use)
    "tpope/vim-dotenv",
   },
  })
+
+  -- Visual
+  use 'edkolev/tmuxline.vim'
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+  use 'ryanoasis/vim-devicons'
 
   -- Themes
   use 'folke/tokyonight.nvim'
