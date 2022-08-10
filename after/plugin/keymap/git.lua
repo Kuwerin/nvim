@@ -1,4 +1,5 @@
 -- Git integration
+
 local Remap = require("kuwerin.keymap")
 local nnoremap = Remap.nnoremap
 

@@ -1,3 +1,5 @@
+-- LuaSnip keymaps
+
 local luasnip = require 'luasnip'
 
 local Remap = require("kuwerin.keymap")

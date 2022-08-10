@@ -1,3 +1,7 @@
+-- Execute cURL responses from the text editor
+-- from string e.g. `curl -s http://jsonplaceholder.typicode.com/users`
+-- and parse it with jq
+
 function callCurl()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   local lines = vim.api.nvim_buf_get_lines(0, row-1, vim.api.nvim_buf_line_count(0), false) or {""}

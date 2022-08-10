@@ -1,3 +1,5 @@
+-- Editor keymaps
+
 local Remap = require("kuwerin.keymap")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap

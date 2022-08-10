@@ -1,3 +1,5 @@
+-- Application before-load settings
+
 vim.opt.nu = true
 vim.opt.relativenumber = false
 

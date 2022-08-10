@@ -1,3 +1,5 @@
+-- Module for store and  download dependencies
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)

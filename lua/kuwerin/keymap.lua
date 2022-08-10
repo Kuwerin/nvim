@@ -1,3 +1,5 @@
+-- Keymap reusable code
+
 local M = {}
 
 local function bind(op, outer_opts)

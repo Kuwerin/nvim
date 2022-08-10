@@ -1,4 +1,5 @@
 -- Coloscheme setup
+
 -- Available schemes:
 -- gruvbox
 -- gruvbox-material
