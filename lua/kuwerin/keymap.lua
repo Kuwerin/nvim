@@ -1,4 +1,4 @@
--- Keymap reusable code
+-- Reusable code for keymaps
 
 local M = {}
 
