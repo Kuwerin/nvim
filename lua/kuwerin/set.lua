@@ -40,6 +40,7 @@ vim.opt.shortmess:append("c")
 
 vim.g.mapleader = " "
 vim.g.NERDTreeShowHidden = true
+vim.g.NERDTreeMinimalUI=1
 
 -- Vim-Go setup
 vim.g.go_fmt_command = 'gopls'
@@ -55,10 +56,12 @@ vim.g.undotree_SplitWidth=25
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_show_help = 0
+vim.g.db_ui_win_position = "right"
 
 -- Airline setup
 vim.g.airline_powerline_fonts = 1
 vim.g.material_terminal_italics = 1
+
 -- For darcula theme only
 vim.g.airline_theme='everforest'
 
