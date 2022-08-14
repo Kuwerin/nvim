@@ -12,7 +12,7 @@ require("kuwerin.utils.evans")
 
 local silent = { silent = true }
 
-
+-- Base remaps
 inoremap("jk", "<Esc>")
 inoremap("jK", "<Esc>")
 inoremap("JK", "<Esc>")
@@ -50,7 +50,7 @@ nnoremap("<leader>f", ":Rg<CR>", silent)
 nnoremap("<S-e>", "<cmd>lua callCurl()<CR>", silent)
 
 -- Get curl history
-nnoremap("<leader>c", ":e $CURL_HISTORY_DIR<CR>")
+nnoremap("<leader>ch", ":e $CURL_HISTORY_DIR<CR>")
 
 -- Execute evans gRPC responses
 nnoremap("<S-x>", "<cmd>lua callEvans()<CR>", silent)
