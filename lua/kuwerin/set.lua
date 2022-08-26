@@ -50,6 +50,7 @@ vim.g.go_imports_autosave = 1
 vim.g.go_fmt_autosave = 1
 vim.g.go_mod_fmt_autosave = 1
 vim.g.go_doc_keywordprg_enabled = 0
+vim.g.go_metalinter_command='golangci-lint run'
 
 -- Undotree setup
 vim.g.undotree_SplitWidth=25

@@ -10,7 +10,6 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
   local opts = { noremap=true, silent=true }
   vim.diagnostic.config({
     float = {
@@ -26,7 +25,6 @@ local on_attach = function(client, bufnr)
           source = 'always',
           }
       )
-
 end
 
 local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd'}
@@ -38,3 +36,15 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+nvim_lsp.gopls.setup {
+    cmd = {"gopls", "serve"},
+    settings = {
+      gopls = {
+        analyses = {
+          composites=false,
+        },
+        staticcheck = true,
+      },
+    },
+  }

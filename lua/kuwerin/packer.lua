@@ -12,6 +12,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'onsails/lspkind.nvim'
 
+  -- Python formatting
+  use 'smbl64/vim-black-macchiato'
+
   -- Git plugin
   use 'tpope/vim-fugitive'
 
