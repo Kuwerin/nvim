@@ -49,4 +49,8 @@ nvim_lsp.gopls.setup {
         staticcheck = true,
       },
     },
+    on_attach=on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
   }
