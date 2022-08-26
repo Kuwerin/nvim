@@ -27,6 +27,7 @@ local on_attach = function(client, bufnr)
       )
 end
 
+-- Common LSP setup
 local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -37,6 +38,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Go Pls specific setup. For API information use gopls api-json
 nvim_lsp.gopls.setup {
     cmd = {"gopls", "serve"},
     settings = {
