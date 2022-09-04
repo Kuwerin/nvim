@@ -33,10 +33,6 @@ nnoremap("<leader>j", ":wincmd j<CR>", silent)
 nnoremap("<leader>k", ":wincmd k<CR>", silent)
 nnoremap("<leader>l", ":wincmd l<CR>", silent)
 
--- Navigate between buffers
-nnoremap("gw", ":bprevious<CR>", silent)
-nnoremap("gn", ":bnext<CR>", silent)
-
 -- Stop search highligting
 nnoremap(",<leader>", ":nohlsearch<CR>", silent)
 
