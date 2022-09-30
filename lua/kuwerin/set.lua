@@ -40,9 +40,14 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
 
+-- Autopairs
+vim.g.lexima_enable_newline_rules = 1
+
 vim.g.mapleader = " "
+
+-- NERDTree
 vim.g.NERDTreeShowHidden = true
-vim.g.NERDTreeMinimalUI=1
+vim.g.NERDTreeMinimalUI = 1
 
 -- Vim-Go setup
 vim.g.go_fmt_command = 'gopls'
@@ -61,6 +66,12 @@ vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_show_help = 0
 vim.g.db_ui_win_position = "right"
 
+-- Gitblame
+vim.g.gitblame_enabled = 0
+vim.g.gitblame_date_format = '%c (%r)'
+vim.g.gitblame_message_template = '<author> • <summary> • <date> '
+vim.g.gitblame_ignored_filetypes = {'gitcommit', 'nerdtree'}
+
 -- Airline setup
 vim.g.airline_powerline_fonts = 1
 vim.g.material_terminal_italics = 1
@@ -78,5 +89,5 @@ vim.cmd("autocmd FileType json set autoindent")
 vim.cmd("autocmd FileType json set formatoptions=tcq2l")
 vim.cmd("autocmd FileType json set softtabstop=2 tabstop=8")
 vim.cmd("autocmd FileType json set expandtab")
-vim.cmd("autocmd FileType json set foldmethod=syntax")
+vim.cmd("autocmd FileType json set foldmethod=manual")
 vim.cmd("autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })")

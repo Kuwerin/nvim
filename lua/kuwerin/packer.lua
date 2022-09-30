@@ -12,11 +12,18 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'onsails/lspkind.nvim'
 
+  -- LSP signature help
+  use 'ray-x/lsp_signature.nvim'
+
+  -- LSP status
+  use 'j-hui/fidget.nvim'
+
   -- Python formatting
   use 'smbl64/vim-black-macchiato'
 
   -- Git plugin
   use 'tpope/vim-fugitive'
+  use 'f-person/git-blame.nvim'
 
   -- Syntax highlight/AST
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -53,10 +60,10 @@ return require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
 
   -- Auto brackets & pairs
-  use 'jiangmiao/auto-pairs'
+  use 'cohama/lexima.vim'
   use 'tpope/vim-surround'
 
-  -- Call Python NeoVim API
+  -- Call Python NeoVim API for Wilder
   use {'roxma/nvim-yarp', run = ":UpdateRemotePlugins"} -- needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
   use 'roxma/vim-hug-neovim-rpc'
 

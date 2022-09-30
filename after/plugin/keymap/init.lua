@@ -27,6 +27,10 @@ nnoremap("<leader>u", ":UndotreeToggle<CR>", silent)
 nnoremap("<leader>s", ":AerialToggle right<CR>", silent)
 nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
 
+-- Replace word with the word in register without
+-- buffer update
+xnoremap("<leader>p", "\"_dP")
+
 -- Move between windows
 nnoremap("<leader>h", ":wincmd h<CR>", silent)
 nnoremap("<leader>j", ":wincmd j<CR>", silent)
