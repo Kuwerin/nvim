@@ -78,6 +78,9 @@ return require('packer').startup(function(use)
   },
  })
 
+  -- Org Mode
+  use 'nvim-orgmode/orgmode'
+
   -- Visual
   use 'edkolev/tmuxline.vim'
   use 'vim-airline/vim-airline'

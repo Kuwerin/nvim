@@ -6,6 +6,10 @@ require('luasnip.loaders.from_vscode').load({
        paths = { '~/.local/share/nvim/site/pack/packer/start/friendly-snippets' }
       })
 
+require('luasnip.loaders.from_lua').load({
+  paths = {'~/.config/nvim/snippets'}
+})
+
 luasnip.config.set_config({
   history = true,
   updateevents = "TextChanged,TextChangedI",
@@ -51,5 +55,6 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'orgmode' }
   },
 }
