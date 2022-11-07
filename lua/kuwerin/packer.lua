@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
 
   -- Syntax highlight/AST
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'nvim-treesitter/nvim-treesitter'
   use 'cespare/vim-toml'
   use 'ekalinin/Dockerfile.vim'
   use 'elzr/vim-json'
@@ -77,9 +78,6 @@ return require('packer').startup(function(use)
    "tpope/vim-dotenv",
   },
  })
-
-  -- Org Mode
-  use 'nvim-orgmode/orgmode'
 
   -- Visual
   use 'edkolev/tmuxline.vim'

@@ -1,7 +1,9 @@
 -- Application before-load settings
 
+vim.g.rnu = true
+vim.opt.mouse = ""
 vim.opt.nu = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 vim.opt.errorbells = false
 
@@ -40,14 +42,20 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
 
+-- Org-mode conceal
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
+
 -- Autopairs
 vim.g.lexima_enable_newline_rules = 1
 
+-- Leader key
 vim.g.mapleader = " "
 
 -- NERDTree
 vim.g.NERDTreeShowHidden = true
 vim.g.NERDTreeMinimalUI = 1
+vim.g.NERDTreeMinimalMenu = 1
 
 -- Vim-Go setup
 vim.g.go_fmt_command = 'gopls'

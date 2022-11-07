@@ -54,3 +54,6 @@ nnoremap("<leader>ch", ":e $CURL_HISTORY_DIR<CR>")
 
 -- Execute evans gRPC responses
 nnoremap("<S-x>", "<cmd>lua callEvans()<CR>", silent)
+
+-- Relative number toggle
+nnoremap("<leader>n", "<cmd>set rnu!<CR>", silent)
