@@ -22,7 +22,9 @@ nnoremap("zk", "O<Esc>j")
 nnoremap("<C-c>", "<C-a>")
 
 -- Toggle helper pannels
-nnoremap("<leader>p", ":NERDTreeToggle<CR>", silent)
+nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
+nnoremap("<leader>v", ":NeoTreeShowToggle git_status<CR>", silent)
+nnoremap("<leader>b", ":NeoTreeShowToggle buffers<CR>", silent)
 nnoremap("<leader>u", ":UndotreeToggle<CR>", silent)
 nnoremap("<leader>s", ":AerialToggle right<CR>", silent)
 nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
