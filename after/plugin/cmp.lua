@@ -1,3 +1,4 @@
+-- Autocomplete setup
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'

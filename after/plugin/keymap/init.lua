@@ -1,11 +1,9 @@
 -- Editor keymaps
 
-local Remap = require("kuwerin.keymap")
+local Remap = require("kuwerin.utils.keymap")
 local nnoremap = Remap.nnoremap
-local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
-local nmap = Remap.nmap
 
 require("kuwerin.utils.curl")
 require("kuwerin.utils.evans")
@@ -22,7 +20,9 @@ nnoremap("zk", "O<Esc>j")
 nnoremap("<C-c>", "<C-a>")
 
 -- Toggle helper pannels
-nnoremap("<leader>p", ":NERDTreeToggle<CR>", silent)
+nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
+nnoremap("<leader>v", ":NeoTreeShowToggle git_status<CR>", silent)
+nnoremap("<leader>b", ":NeoTreeShowToggle buffers<CR>", silent)
 nnoremap("<leader>u", ":UndotreeToggle<CR>", silent)
 nnoremap("<leader>s", ":AerialToggle right<CR>", silent)
 nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
