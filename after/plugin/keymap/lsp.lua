@@ -1,6 +1,6 @@
 -- LSP keymaps
 
-local Remap = require("kuwerin.keymap")
+local Remap = require("kuwerin.utils.keymap")
 local nnoremap = Remap.nnoremap
 
 nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)

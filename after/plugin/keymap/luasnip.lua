@@ -2,12 +2,8 @@
 
 local luasnip = require 'luasnip'
 
-local Remap = require("kuwerin.keymap")
-local nnoremap = Remap.nnoremap
-local vnoremap = Remap.vnoremap
+local Remap = require("kuwerin.utils.keymap")
 local inoremap = Remap.inoremap
-local xnoremap = Remap.xnoremap
-local nmap = Remap.nmap
 
 local silent = { silent = true }
 

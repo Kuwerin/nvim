@@ -1,11 +1,9 @@
 -- Editor keymaps
 
-local Remap = require("kuwerin.keymap")
+local Remap = require("kuwerin.utils.keymap")
 local nnoremap = Remap.nnoremap
-local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
-local nmap = Remap.nmap
 
 require("kuwerin.utils.curl")
 require("kuwerin.utils.evans")

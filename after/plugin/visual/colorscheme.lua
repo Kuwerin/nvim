@@ -9,6 +9,6 @@
 -- everforest
 -- seoul256
 -- seoul256-light
--- darcula (JetBrains-like!!)
+-- darcula
 vim.opt.background = "dark"
 vim.cmd("colorscheme darcula")

@@ -1,6 +1,6 @@
 -- Git integration
 
-local Remap = require("kuwerin.keymap")
+local Remap = require("kuwerin.utils.keymap")
 local nnoremap = Remap.nnoremap
 
 local silent = { silent = true }
