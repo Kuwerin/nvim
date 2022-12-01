@@ -27,8 +27,9 @@ return require("packer").startup(function(use)
 
   -- Syntax highlight/AST
   use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+  use "nvim-treesitter/nvim-treesitter-context"
   use "cespare/vim-toml"
-  use "ekalinin/.vim"
+--  use "ekalinin/Dockerfile.vim"
   use "elzr/vim-json"
 
   -- Snippets

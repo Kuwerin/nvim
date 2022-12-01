@@ -13,4 +13,7 @@ function goNext()
 	end
 end
 
-inoremap("<C-n>", "<cmd>lua goNext()<CR>")
+-- To prevent autocomplete after snippet done,
+-- `goNext` function was mapped to the same keybind
+-- as cmp.mapping.close
+inoremap("<C-e>", "<cmd>lua goNext()<CR>")

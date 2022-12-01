@@ -11,13 +11,14 @@ require("kuwerin.utils.evans")
 local silent = { silent = true }
 
 -- Base remaps
-inoremap("jk", "<Esc>")
-inoremap("jK", "<Esc>")
-inoremap("JK", "<Esc>")
-inoremap("Jk", "<Esc>")
-nnoremap("zj", "o<Esc>k")
-nnoremap("zk", "O<Esc>j")
-nnoremap("<C-c>", "<C-a>")
+inoremap("jk", "<Esc>", silent)
+inoremap("jK", "<Esc>", silent)
+inoremap("JK", "<Esc>", silent)
+inoremap("Jk", "<Esc>", silent)
+nnoremap("zj", "o<Esc>k", silent)
+nnoremap("zk", "O<Esc>j", silent)
+nnoremap("<C-c>", "<C-a>", silent)
+nnoremap("<C-q>", "<Esc>:q!<CR>", silent)
 
 -- Toggle helper pannels
 nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
@@ -57,3 +58,7 @@ nnoremap("<S-x>", "<cmd>lua callEvans()<CR>", silent)
 
 -- Relative number toggle
 nnoremap("<leader>n", "<cmd>set rnu!<CR>", silent)
+
+-- Go linter autosave toggle
+nnoremap("<leader>al", "<cmd>:GoMetaLinterAutoSaveToggle<CR>", silent)
+nnoremap("<leader>rl", "<cmd>:GoMetaLinter<CR>", silent)
