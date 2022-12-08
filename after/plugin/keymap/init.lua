@@ -19,6 +19,10 @@ nnoremap("zj", "o<Esc>k", silent)
 nnoremap("zk", "O<Esc>j", silent)
 nnoremap("<C-c>", "<C-a>", silent)
 nnoremap("<C-q>", "<Esc>:q!<CR>", silent)
+nnoremap("<C-d>", "<C-d>zz", silent)
+nnoremap("<C-u>", "<C-u>zz", silent)
+nnoremap("n", "nzzzv", silent)
+nnoremap("N", "Nzzzv", silent)
 
 -- Toggle helper pannels
 nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
@@ -48,7 +52,7 @@ nnoremap("<leader>cs", ":set ic!<CR>", silent)
 nnoremap("<leader>f", ":Rg<CR>", silent)
 
 -- Execute curl responses and get the response data
-nnoremap("<S-e>", "<cmd>lua callCurl()<CR>", silent)
+nnoremap("<S-r>", "<cmd>lua callCurl()<CR>", silent)
 
 -- Get curl history
 nnoremap("<leader>ch", ":e $CURL_HISTORY_DIR<CR>")
