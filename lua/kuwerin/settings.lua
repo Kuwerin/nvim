@@ -3,9 +3,11 @@
 vim.g.rnu = true
 vim.opt.mouse = ""
 vim.opt.nu = true
+vim.opt.cul = true
 vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus"
 
-vim.opt.errorbells = false
+vim.opt.errorbells = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -42,10 +44,6 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
 
--- Org-mode conceal
-vim.opt.conceallevel = 2
-vim.opt.concealcursor = 'nc'
-
 -- Autopairs
 vim.g.lexima_enable_newline_rules = 1
 
@@ -78,7 +76,7 @@ vim.g.db_ui_win_position = "right"
 vim.g.gitblame_enabled = 0
 vim.g.gitblame_date_format = '%c (%r)'
 vim.g.gitblame_message_template = '<author> • <summary> • <date> '
-vim.g.gitblame_ignored_filetypes = {'gitcommit', 'nerdtree'}
+vim.g.gitblame_ignored_filetypes = {'gitcommit'}
 
 -- Airline setup
 vim.g.airline_powerline_fonts = 1
@@ -87,15 +85,9 @@ vim.g.material_terminal_italics = 1
 -- For darcula theme only
 vim.g.airline_theme='everforest'
 
+-- Darcula specific highlights
+vim.cmd("autocmd FileType * highlight Pmenu guibg=#292929")
+
 vim.cmd("syntax on")
 vim.cmd("set diffopt=vertical")
 vim.cmd("set wildcharm=<C-z>")
-vim.cmd("autocmd Filetype python set colorcolumn=79")
-vim.cmd("autocmd Filetype gitcommit set colorcolumn=50")
-
-vim.cmd("autocmd FileType json set autoindent")
-vim.cmd("autocmd FileType json set formatoptions=tcq2l")
-vim.cmd("autocmd FileType json set softtabstop=2 tabstop=8")
-vim.cmd("autocmd FileType json set expandtab")
-vim.cmd("autocmd FileType json set foldmethod=manual")
-vim.cmd("autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })")

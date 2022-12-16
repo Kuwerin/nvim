@@ -1,5 +1,7 @@
 local nvim_lsp = require('lspconfig')
 
+local border = 'rounded'
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -14,13 +16,13 @@ local on_attach = function(client, bufnr)
   vim.diagnostic.config({
     float = {
       source = 'always',
-      border = 'rounded'
+      border = border,
     },
   })
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
         vim.lsp.handlers.hover, {
-          border = 'rounded',
+          border = border,
           scrollbar = '║',
           source = 'always',
           }
@@ -59,7 +61,7 @@ nvim_lsp.gopls.setup {
 require "lsp_signature".setup({
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   handler_opts = {
-    border = "rounded"
+    border = border,
   },
   hint_prefix = " ",
 })
