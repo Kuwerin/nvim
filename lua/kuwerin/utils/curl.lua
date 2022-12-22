@@ -48,5 +48,5 @@ function callCurl()
   vim.api.nvim_win_set_option(win, "cursorline", true)
   vim.api.nvim_buf_set_option(buf, "modifiable", true)
   vim.cmd(":edit ~/.vim/curl/" .. filename)
-  vim.api.nvim_buf_set_option(0, "modifiable", false)
+  vim.api.nvim_buf_set_option(0, "modifiable", true)
 end

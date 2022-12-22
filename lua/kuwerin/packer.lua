@@ -26,16 +26,19 @@ return require("packer").startup(function(use)
   use "f-person/git-blame.nvim"
 
   -- Syntax highlight/AST
-  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", tag = "v0.7.2"}
   use "nvim-treesitter/nvim-treesitter-context"
   use "cespare/vim-toml"
---  use "ekalinin/Dockerfile.vim"
+  use "ekalinin/Dockerfile.vim"
   use "elzr/vim-json"
 
   -- Snippets
   use "rafamadriz/friendly-snippets"
   use "saadparwaiz1/cmp_luasnip"
   use { "L3MON4D3/LuaSnip", after = "friendly-snippets" }
+
+  -- Better quickfix
+  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
   -- Undo
   use "mbbill/undotree"
