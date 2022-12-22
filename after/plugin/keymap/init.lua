@@ -4,6 +4,7 @@ local Remap = require("kuwerin.utils.keymap")
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
+local vnoremap = Remap.vnoremap
 
 require("kuwerin.utils.curl")
 require("kuwerin.utils.evans")
@@ -23,6 +24,7 @@ nnoremap("<C-d>", "<C-d>zz", silent)
 nnoremap("<C-u>", "<C-u>zz", silent)
 nnoremap("n", "nzzzv", silent)
 nnoremap("N", "Nzzzv", silent)
+nnoremap("Q", "<nop>", silent)
 
 -- Toggle helper pannels
 nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
@@ -66,3 +68,21 @@ nnoremap("<leader>n", "<cmd>set rnu!<CR>", silent)
 -- Go linter autosave toggle
 nnoremap("<leader>al", "<cmd>:GoMetaLinterAutoSaveToggle<CR>", silent)
 nnoremap("<leader>rl", "<cmd>:GoMetaLinter<CR>", silent)
+
+-- Move visual block up and down
+vnoremap("J", ":m  '>+1<CR>gv=gv")
+vnoremap("K", ":m  '<-2<CR>gv=gv")
+
+-- System buffer integration
+nnoremap("<leader>y", "\"+y")
+vnoremap("<leader>y", "\"+y")
+nnoremap("<leader>Y", "\"+Y")
+
+nnoremap("<leader>d", "\"_d")
+vnoremap("<leader>d", "\"_d")
+
+-- Escape remap for insert after visual block
+inoremap("<C-c>", "<Esc>")
+
+-- Replace word under the cursor
+nnoremap("<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
