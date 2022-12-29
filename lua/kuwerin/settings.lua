@@ -85,7 +85,6 @@ vim.g.material_terminal_italics = 1
 vim.g.airline_theme='everforest'
 
 -- Darcula specific highlights
--- vim.cmd("autocmd FileType * highlight Pmenu guibg=#292929")
 vim.cmd("autocmd FileType * highlight FloatBorder guibg=#464748")
 
 vim.cmd("syntax on")
