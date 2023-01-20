@@ -21,12 +21,28 @@ return require("packer").startup(function(use)
   -- Python formatting
   use "smbl64/vim-black-macchiato"
 
+  -- Harpoon
+  use "ThePrimeagen/harpoon"
+
+  -- Telescope
+  use {
+    "nvim-telescope/telescope.nvim", tag = "0.1.0",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim",
+      "nvim-telescope/telescope-fzy-native.nvim",
+    }
+  }
+
+  -- Git worktree
+  use "ThePrimeagen/git-worktree.nvim"
+
   -- Git plugin
   use "tpope/vim-fugitive"
   use "f-person/git-blame.nvim"
 
   -- Syntax highlight/AST
-  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", tag = "v0.7.2"}
+  use {"nvim-treesitter/nvim-treesitter", tag = "v0.7.2"}
   use "nvim-treesitter/nvim-treesitter-context"
   use "cespare/vim-toml"
   use "ekalinin/Dockerfile.vim"
@@ -38,7 +54,7 @@ return require("packer").startup(function(use)
   use { "L3MON4D3/LuaSnip", after = "friendly-snippets" }
 
   -- Better quickfix
-  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+  use {"kevinhwang91/nvim-bqf", ft = "qf"}
 
   -- Undo
   use "mbbill/undotree"

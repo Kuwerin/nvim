@@ -49,11 +49,6 @@ vim.g.lexima_enable_newline_rules = 1
 -- Leader key
 vim.g.mapleader = " "
 
--- NERDTree
-vim.g.NERDTreeShowHidden = true
-vim.g.NERDTreeMinimalUI = 1
-vim.g.NERDTreeMinimalMenu = 1
-
 -- Vim-Go setup
 vim.g.go_fmt_command = 'gopls'
 vim.g.go_imports_autosave = 1

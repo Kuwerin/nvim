@@ -2,24 +2,17 @@
 -- from string e.g. `curl -s http://jsonplaceholder.typicode.com/users`
 -- and parse it with jq
 
+
+-- TODO: refactor envvar sourcing
+-- Needs to set as vim global variable
+local curl_history_dir = os.getenv("CURL_HISTORY_DIR").."/" or "~/.vim/curl/history/"
+
 function callCurl()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local lines = vim.api.nvim_buf_get_lines(0, row-1, vim.api.nvim_buf_line_count(0), false) or {""}
-  local commandLines = ""
-  for k,v in pairs(lines) do
-      if v ~= "" then
-          commandLines = vim.api.nvim_buf_get_lines(0, row-1, row+k-1, false)
-          break
-      end
-  end
+  local linenr = vim.api.nvim_win_get_cursor(0)[1]
+  local cmd = vim.api.nvim_buf_get_lines(0, linenr - 1, linenr, false)[1]
+  local filename = os.date("%d-%m-%y_%H:%M:%S").. ".json"
 
-  local command = table.concat(commandLines, " ")
-
-  local resource = string.match(command, '//%g.- '):gsub('/', '_'):gsub("\\", ''):gsub('~', ''):gsub("%p", "_"):gsub(" ", "")
-
-  local filename = os.date("%d-%m-%y_%H:%M:%S").. resource .. ".json"
-
-  vim.cmd('!'..command..' -s | jq  > ~/.vim/curl/'.. filename)
+  vim.cmd('!'..cmd..'  > '..curl_history_dir.. filename)
 
   buf = vim.api.nvim_create_buf(false, true)
 
@@ -47,6 +40,6 @@ function callCurl()
   win = vim.api.nvim_open_win(buf, true, opts)
   vim.api.nvim_win_set_option(win, "cursorline", true)
   vim.api.nvim_buf_set_option(buf, "modifiable", true)
-  vim.cmd(":edit ~/.vim/curl/" .. filename)
+  vim.cmd(":edit " .. curl_history_dir .. filename)
   vim.api.nvim_buf_set_option(0, "modifiable", true)
 end

@@ -39,7 +39,7 @@ nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
 -- buffer update
 xnoremap("<leader>p", "\"_dP")
 
--- Move between windows
+-- Move between splits
 nnoremap("<leader>h", ":wincmd h<CR>", silent)
 nnoremap("<leader>j", ":wincmd j<CR>", silent)
 nnoremap("<leader>k", ":wincmd k<CR>", silent)
@@ -52,13 +52,29 @@ nnoremap(",<leader>", ":nohlsearch<CR>", silent)
 nnoremap("<leader>cs", ":set ic!<CR>", silent)
 
 -- Fuzzy project search
-nnoremap("<leader>f", ":Rg<CR>", silent)
+nnoremap("<leader>fg", ":Telescope live_grep<CR>", silent)
+nnoremap("<leader>ff", ":Telescope find_files<CR>", silent)
+nnoremap("<leader>fb", ":Telescope buffers<CR>", silent)
+nnoremap("<leader>fh", ":Telescope help_tags<CR>", silent)
+
+-- Harpoon
+nnoremap("<leader>th", ":lua require('harpoon.ui').nav_file(1)<CR>", silent)
+nnoremap("<leader>tj", ":lua require('harpoon.ui').nav_file(2)<CR>", silent)
+nnoremap("<leader>tk", ":lua require('harpoon.ui').nav_file(3)<CR>", silent)
+nnoremap("<leader>tl", ":lua require('harpoon.ui').nav_file(4)<CR>", silent)
+nnoremap("<leader>tq", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", silent)
+nnoremap("<leader>af", ":lua require('harpoon.mark').add_file()<CR>", silent)
+
+-- Worktree
+nnoremap("<leader>fw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", silent)
+nnoremap("<leader>cw", ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", silent)
 
 -- Execute curl responses and get the response data
 nnoremap("<S-r>", "<cmd>lua callCurl()<CR>", silent)
 
--- Get curl history
-nnoremap("<leader>ch", ":e $CURL_HISTORY_DIR<CR>")
+-- Get curl artifacts
+nnoremap("<leader>ch", ":e $CURL_HISTORY_DIR<CR>", silent)
+nnoremap("<leader>cd", ":e $CURL_REQUEST_DIR<CR>", silent)
 
 -- Execute evans gRPC responses
 nnoremap("<S-x>", "<cmd>lua callEvans()<CR>", silent)
