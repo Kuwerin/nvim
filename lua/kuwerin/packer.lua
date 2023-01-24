@@ -104,6 +104,9 @@ return require("packer").startup(function(use)
   },
  })
 
+  -- Nvim-cURLy
+  use "kuwerin/nvim-curly"
+
   -- Visual
   use "nvim-tree/nvim-web-devicons"
   use "edkolev/tmuxline.vim"

@@ -6,9 +6,6 @@ local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 local vnoremap = Remap.vnoremap
 
-require("kuwerin.utils.curl")
-require("kuwerin.utils.evans")
-
 local silent = { silent = true }
 
 -- Base remaps
@@ -69,15 +66,12 @@ nnoremap("<leader>af", ":lua require('harpoon.mark').add_file()<CR>", silent)
 nnoremap("<leader>fw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", silent)
 nnoremap("<leader>cw", ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", silent)
 
--- Execute curl responses and get the response data
-nnoremap("<S-r>", "<cmd>lua callCurl()<CR>", silent)
-
--- Get curl artifacts
-nnoremap("<leader>ch", ":e $CURL_HISTORY_DIR<CR>", silent)
-nnoremap("<leader>cd", ":e $CURL_REQUEST_DIR<CR>", silent)
-
--- Execute evans gRPC responses
-nnoremap("<S-x>", "<cmd>lua callEvans()<CR>", silent)
+-- NVim-curly
+nnoremap("<S-r>", ":lua require('nvim-curly').execute_line()<CR>", silent)
+xnoremap("<S-r>", ":lua require('nvim-curly').execute_multiline()<CR>", silent)
+vnoremap("<S-r>", ":lua require('nvim-curly').execute_multiline()<CR>", silent)
+nnoremap("<leader>ch", ":lua require('nvim-curly').go_to_history()<CR>", silent)
+nnoremap("<leader>cd", ":lua require('nvim-curly').go_to_workspace_root()<CR>", silent)
 
 -- Relative number toggle
 nnoremap("<leader>n", "<cmd>set rnu!<CR>", silent)
@@ -94,9 +88,6 @@ vnoremap("K", ":m  '<-2<CR>gv=gv")
 nnoremap("<leader>y", "\"+y")
 vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>Y", "\"+Y")
-
-nnoremap("<leader>d", "\"_d")
-vnoremap("<leader>d", "\"_d")
 
 -- Escape remap for insert after visual block
 inoremap("<C-c>", "<Esc>")
