@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
   -- Git plugin
   use "tpope/vim-fugitive"
   use "f-person/git-blame.nvim"
+  use "stsewd/fzf-checkout.vim"
 
   -- Syntax highlight/AST
   use {"nvim-treesitter/nvim-treesitter", tag = "v0.7.2"}
@@ -106,6 +107,9 @@ return require("packer").startup(function(use)
 
   -- Nvim-cURLy
   use "kuwerin/nvim-curly"
+
+  -- Delay train
+  use 'ja-ford/delaytrain.nvim'
 
   -- Visual
   use "nvim-tree/nvim-web-devicons"

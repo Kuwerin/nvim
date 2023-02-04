@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Common LSP setup
-local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd', 'sumneko_lua'}
+local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd', 'sumneko_lua', 'solargraph'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

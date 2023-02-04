@@ -55,10 +55,10 @@ nnoremap("<leader>fb", ":Telescope buffers<CR>", silent)
 nnoremap("<leader>fh", ":Telescope help_tags<CR>", silent)
 
 -- Harpoon
-nnoremap("<leader>th", ":lua require('harpoon.ui').nav_file(1)<CR>", silent)
-nnoremap("<leader>tj", ":lua require('harpoon.ui').nav_file(2)<CR>", silent)
-nnoremap("<leader>tk", ":lua require('harpoon.ui').nav_file(3)<CR>", silent)
-nnoremap("<leader>tl", ":lua require('harpoon.ui').nav_file(4)<CR>", silent)
+nnoremap("<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", silent)
+nnoremap("<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", silent)
+nnoremap("<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", silent)
+nnoremap("<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", silent)
 nnoremap("<leader>tq", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", silent)
 nnoremap("<leader>af", ":lua require('harpoon.mark').add_file()<CR>", silent)
 
