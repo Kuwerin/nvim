@@ -7,13 +7,13 @@ Telescope.load_extension('harpoon')
 Telescope.setup{
   pickers = {
     find_files = {
-      theme = "dropdown",
+      theme = PREF.ui.telescope.default_theme,
     },
     live_grep = {
-      theme = "dropdown",
+      theme = PREF.ui.telescope.default_theme,
     },
     buffers = {
-      theme = "dropdown",
+      theme = PREF.ui.telescope.default_theme,
     },
   },
 }

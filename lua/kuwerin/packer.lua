@@ -85,10 +85,6 @@ return require("packer").startup(function(use)
   use "cohama/lexima.vim"
   use "tpope/vim-surround"
 
-  -- Call Python NeoVim API for Wilder
-  --use {"roxma/nvim-yarp", run = ":UpdateRemotePlugins"} -- needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
-  --use "roxma/vim-hug-neovim-rpc"
-
   -- Wildmenu
   use "gelguy/wilder.nvim"
 

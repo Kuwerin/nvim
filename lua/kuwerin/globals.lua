@@ -15,6 +15,10 @@ PREF = {
     scrollbar = '║',
     border = 'single',
     italic = true,
+    color_icons = false,
+    telescope = {
+      default_theme = 'dropdown'
+    },
   },
 
   git = {
