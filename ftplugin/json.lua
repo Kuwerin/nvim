@@ -1,3 +1,4 @@
+vim.opt.signcolumn = "yes"
 vim.opt.autoindent = true
 vim.opt.formatoptions = "tcq2l"
 vim.opt.softtabstop = 2

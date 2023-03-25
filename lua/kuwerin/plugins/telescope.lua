@@ -2,7 +2,6 @@
 
 Telescope = require("telescope")
 
-Telescope.load_extension("git_worktree")
 Telescope.load_extension('harpoon')
 
 Telescope.setup{

@@ -1,31 +1,16 @@
 -- Autocomplete setup
 local lspkind = require 'lspkind'
-local luasnip = require 'luasnip'
 local cmp = require 'cmp'
-
-require('luasnip.loaders.from_vscode').load({
-       paths = { '~/.local/share/nvim/site/pack/packer/start/friendly-snippets' }
-      })
-
-require('luasnip.loaders.from_lua').load({
-  paths = {'~/.config/nvim/snippets'}
-})
-
-luasnip.config.set_config({
-  history = true,
-  updateevents = "TextChanged,TextChangedI",
-  enable_autosnippets = true,
-})
 
 cmp.setup {
   window = {
     completion = { -- rounded border; thin-style scrollbar
-      border = 'rounded',
-      scrollbar = '║',
+      border = PREF.ui.border,
+      scrollbar = PREF.ui.scrollbar,
     },
     documentation = { -- no border; native-style scrollbar
-      border = 'rounded',
-      scrollbar = '║',
+      border = PREF.ui.border,
+      scrollbar = PREF.ui.scrollbar,
     },
   },
    formatting = {
@@ -36,7 +21,7 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end,
   },
   mapping = {

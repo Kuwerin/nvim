@@ -5,8 +5,8 @@ require("neo-tree").setup({
             winbar = false,
             statusline = false,
         },
-        close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-        popup_border_style = "rounded",
+        close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+        popup_border_style = PREF.ui.border,
         enable_git_status = true,
         enable_diagnostics = true,
         sort_case_insensitive = false, -- used when sorting files and directories in the tree
@@ -131,7 +131,7 @@ require("neo-tree").setup({
           filtered_items = {
             visible = false, -- when true, they will just be displayed differently than normal items
             hide_dotfiles = false,
-            show_hidden = false,
+            show_hidden = true,
             hide_gitignored = false,
             hide_hidden = false, -- only works on Windows for hidden files/directories
             hide_by_name = {

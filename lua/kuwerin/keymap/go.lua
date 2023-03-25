@@ -1,6 +1,6 @@
 -- Go language keymaps
 
-local Remap = require("kuwerin.utils.keymap")
+local Remap = require("kuwerin.keymap.utils.remap")
 local nnoremap = Remap.nnoremap
 
 local silent = { silent = true }

@@ -1,4 +1,0 @@
--- Execute cURL responses from the text editor
--- from string e.g. `curl -s http://jsonplaceholder.typicode.com/users`
--- and parse it with jq
--- TODO: delete

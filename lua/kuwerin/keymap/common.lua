@@ -1,6 +1,7 @@
 -- Editor keymaps
 
-local Remap = require("kuwerin.utils.keymap")
+
+local Remap = require("kuwerin.keymap.utils.remap")
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
@@ -26,7 +27,6 @@ nnoremap("Q", "<nop>", silent)
 
 -- Toggle helper pannels
 nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
-nnoremap("<leader>v", ":NeoTreeShowToggle git_status<CR>", silent)
 nnoremap("<leader>b", ":NeoTreeShowToggle buffers<CR>", silent)
 nnoremap("<leader>u", ":UndotreeToggle<CR>", silent)
 nnoremap("<leader>s", ":AerialToggle right<CR>", silent)
@@ -35,6 +35,13 @@ nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
 -- Replace word with the word in register without
 -- buffer update
 xnoremap("<leader>p", "\"_dP")
+
+-- Bufferline
+nnoremap("<C-n>", "<cmd>bn<CR>",silent)
+nnoremap("<C-p>", "<cmd>bp<CR>",silent)
+nnoremap("<leader>x", "<cmd>:BufferLinePickClose<CR>",silent)
+nnoremap("<leader>{", "<cmd>:BufferLineCloseLeft<CR>",silent)
+nnoremap("<leader>}", "<cmd>:BufferLineCloseRight<CR>",silent)
 
 -- Move between splits
 nnoremap("<leader>h", ":wincmd h<CR>", silent)

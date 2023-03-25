@@ -1,6 +1,4 @@
-local nvim_lsp = require('lspconfig')
-
-local border = 'rounded'
+local lspconfig = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -16,23 +14,23 @@ local on_attach = function(client, bufnr)
   vim.diagnostic.config({
     float = {
       source = 'always',
-      border = border,
+      border = PREF.ui.border,
     },
   })
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
         vim.lsp.handlers.hover, {
-          border = border,
-          scrollbar = '║',
+          border = PREF.ui.border,
+          scrollbar = PREF.ui.scrollbar,
           source = 'always',
           }
       )
 end
 
 -- Common LSP setup
-local servers = {'pyright', 'rust_analyzer', 'gopls', 'clangd', 'sumneko_lua', 'solargraph'}
+local servers = {'pyright', 'rust_analyzer', 'gopls', 'solargraph', 'lua_ls'}
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
@@ -40,8 +38,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- Go Pls specific setup. For API information use gopls api-json
-nvim_lsp.gopls.setup {
+-- Go Pls specific setup. For API information use `gopls api-json`
+lspconfig.gopls.setup {
     cmd = {"gopls", "serve"},
     settings = {
       gopls = {
@@ -57,11 +55,20 @@ nvim_lsp.gopls.setup {
     }
   }
 
+-- Clangd specific setup.
+require'lspconfig'.clangd.setup{
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+}
+
 -- LSP always-show signature
 require "lsp_signature".setup({
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   handler_opts = {
-    border = border,
+    border = PREF.ui.border,
   },
   hint_prefix = " ",
 })

@@ -76,12 +76,12 @@ vim.g.gitblame_ignored_filetypes = {'gitcommit'}
 vim.g.airline_powerline_fonts = 1
 vim.g.material_terminal_italics = 1
 
--- For darcula theme only
-vim.g.airline_theme='everforest'
-
--- Darcula specific highlights
-vim.cmd("autocmd FileType * highlight FloatBorder guibg=#464748")
-
 vim.cmd("syntax on")
 vim.cmd("set diffopt=vertical")
 vim.cmd("set wildcharm=<C-z>")
+
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end

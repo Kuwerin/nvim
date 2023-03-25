@@ -1,9 +1,20 @@
 -- Devicons
 
+require("nvim-web-devicons").set_default_icon('', '#6d8086')
+
+
 require'nvim-web-devicons'.setup {
+ -- globally enable different highlight colors per icon (default to true)
+ -- if set to false all icons will have the default icon's color
+ color_icons = false;
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
  -- your personnal icons can go here (to override)
  -- you can specify color or cterm_color instead of specifying both of them
  -- DevIcon will be appended to `name`
+ strict = true;
+
  override = {
      [".babelrc"] = {
     icon = "ﬥ",
@@ -136,12 +147,6 @@ require'nvim-web-devicons'.setup {
     color = "#cbcb41",
     cterm_color = "185",
     name = "License",
-  },
-  ["Dockerfile"] = {
-    icon = "",
-    color = "#384d54",
-    cterm_color = "59",
-    name = "Dockerfile",
   },
   ["Gemfile$"] = {
     icon = "",
@@ -402,12 +407,6 @@ require'nvim-web-devicons'.setup {
     name = "Doc",
   },
   ["Dockerfile"] = {
-    icon = "",
-    color = "#fffdd0",
-    cterm_color = "59",
-    name = "Dockerfile",
-  },
-  ["Dockerfile.dev"] = {
     icon = "",
     color = "#fffdd0",
     cterm_color = "59",
@@ -1388,10 +1387,4 @@ require'nvim-web-devicons'.setup {
     name = "Log",
   },
  };
- -- globally enable different highlight colors per icon (default to true)
- -- if set to false all icons will have the default icon's color
- color_icons = false;
- -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
- default = false;
 }

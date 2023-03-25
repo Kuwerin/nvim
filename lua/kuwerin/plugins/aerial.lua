@@ -20,7 +20,7 @@ require('aerial').setup({
   filter_kind = false,
   float = {
     -- Controls border appearance. Passed to nvim_open_win
-    border = "rounded",
+    border = PREF.ui.border,
 
     -- Enum: cursor, editor, win
     --   cursor - Opens float on top of the cursor

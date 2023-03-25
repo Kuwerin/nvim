@@ -18,9 +18,6 @@ return require("packer").startup(function(use)
   -- LSP status
   use "j-hui/fidget.nvim"
 
-  -- Python formatting
-  use "smbl64/vim-black-macchiato"
-
   -- Harpoon
   use "ThePrimeagen/harpoon"
 
@@ -34,25 +31,25 @@ return require("packer").startup(function(use)
     }
   }
 
-  -- Git worktree
-  use "ThePrimeagen/git-worktree.nvim"
-
   -- Git plugin
   use "tpope/vim-fugitive"
   use "f-person/git-blame.nvim"
-  use "stsewd/fzf-checkout.vim"
 
   -- Syntax highlight/AST
   use {"nvim-treesitter/nvim-treesitter", tag = "v0.7.2"}
   use "nvim-treesitter/nvim-treesitter-context"
-  use "cespare/vim-toml"
-  use "ekalinin/Dockerfile.vim"
-  use "elzr/vim-json"
 
   -- Snippets
   use "rafamadriz/friendly-snippets"
   use "saadparwaiz1/cmp_luasnip"
-  use { "L3MON4D3/LuaSnip", after = "friendly-snippets" }
+  use {
+    "L3MON4D3/LuaSnip",
+    after = {"friendly-snippets", "nvim-cmp"},
+    config = function()
+      require("luasnip").config.setup({ history = false })
+      require("luasnip.loaders.from_vscode").load {}
+    end,
+  }
 
   -- Better quickfix
   use {"kevinhwang91/nvim-bqf", ft = "qf"}
@@ -67,6 +64,7 @@ return require("packer").startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
     }
   }
 
@@ -76,9 +74,6 @@ return require("packer").startup(function(use)
   -- Fuzzy search
   use "junegunn/fzf"
   use "junegunn/fzf.vim"
-
-  -- Terminal
-  use "numToStr/FTerm.nvim"
 
   -- Vim-go
   use "fatih/vim-go"
@@ -91,11 +86,14 @@ return require("packer").startup(function(use)
   use "tpope/vim-surround"
 
   -- Call Python NeoVim API for Wilder
-  use {"roxma/nvim-yarp", run = ":UpdateRemotePlugins"} -- needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
-  use "roxma/vim-hug-neovim-rpc"
+  --use {"roxma/nvim-yarp", run = ":UpdateRemotePlugins"} -- needs python3, boost, gettext to be installed, may need :UpdateRemotePlugins
+  --use "roxma/vim-hug-neovim-rpc"
 
   -- Wildmenu
   use "gelguy/wilder.nvim"
+
+  -- Bufferline
+  use {'akinsho/bufferline.nvim', tag = "v3.*"}
 
   -- SQL client
  use({ "kristijanhusak/vim-dadbod-ui", requires = {
@@ -108,11 +106,7 @@ return require("packer").startup(function(use)
   -- Nvim-cURLy
   use "kuwerin/nvim-curly"
 
-  -- Delay train
-  use 'ja-ford/delaytrain.nvim'
-
   -- Visual
-  use "nvim-tree/nvim-web-devicons"
   use "edkolev/tmuxline.vim"
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
@@ -128,5 +122,7 @@ return require("packer").startup(function(use)
   use "ayu-theme/ayu-vim"
   use "junegunn/seoul256.vim"
   use "doums/darcula"
+  use "Mofiqul/vscode.nvim"
+  use "catppuccin/nvim"
 end)
 
