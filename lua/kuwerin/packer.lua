@@ -11,9 +11,13 @@ return require("packer").startup(function(use)
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "onsails/lspkind.nvim"
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
   -- LSP signature help
   use "ray-x/lsp_signature.nvim"
+
+  -- Inlay hints
+  use "lvimuser/lsp-inlayhints.nvim"
 
   -- LSP status
   use "j-hui/fidget.nvim"
@@ -92,12 +96,20 @@ return require("packer").startup(function(use)
   use {'akinsho/bufferline.nvim', tag = "v3.*"}
 
   -- SQL client
- use({ "kristijanhusak/vim-dadbod-ui", requires = {
-   "tpope/vim-dadbod",
-   "kristijanhusak/vim-dadbod-completion",
-   "tpope/vim-dotenv",
-  },
- })
+  use({ "kristijanhusak/vim-dadbod-ui", requires = {
+    "tpope/vim-dadbod",
+    "kristijanhusak/vim-dadbod-completion",
+    "tpope/vim-dotenv",
+   },
+  })
+
+ -- Langmapper
+  use({
+  'Wansmer/langmapper.nvim',
+  config = function()
+    require('langmapper').setup({--[[ your config ]]})
+  end,
+  })
 
   -- Nvim-cURLy
   use "kuwerin/nvim-curly"

@@ -79,6 +79,7 @@ vim.g.material_terminal_italics = 1
 vim.cmd("syntax on")
 vim.cmd("set diffopt=vertical")
 vim.cmd("set wildcharm=<C-z>")
+vim.cmd("set signcolumn=yes")
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do

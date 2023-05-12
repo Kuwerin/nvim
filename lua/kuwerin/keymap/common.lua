@@ -25,6 +25,9 @@ nnoremap("n", "nzzzv", silent)
 nnoremap("N", "Nzzzv", silent)
 nnoremap("Q", "<nop>", silent)
 
+-- LuaSnip
+inoremap("<C-e>", "<cmd>lua require('luasnip').jump(1)<CR>")
+
 -- Toggle helper pannels
 nnoremap("<leader>p", ":NeoTreeShowToggle<CR>", silent)
 nnoremap("<leader>b", ":NeoTreeShowToggle buffers<CR>", silent)
@@ -37,8 +40,8 @@ nnoremap("<leader>d", ":DBUIToggle<CR>", silent)
 xnoremap("<leader>p", "\"_dP")
 
 -- Bufferline
-nnoremap("<C-n>", "<cmd>bn<CR>",silent)
-nnoremap("<C-p>", "<cmd>bp<CR>",silent)
+nnoremap("<Tab>", "<cmd>bn<CR>",silent)
+nnoremap("<S-Tab>", "<cmd>bp<CR>",silent)
 nnoremap("<leader>x", "<cmd>:BufferLinePickClose<CR>",silent)
 nnoremap("<leader>{", "<cmd>:BufferLineCloseLeft<CR>",silent)
 nnoremap("<leader>}", "<cmd>:BufferLineCloseRight<CR>",silent)

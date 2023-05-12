@@ -74,17 +74,8 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["Dockerfile.vim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/Dockerfile.vim",
-    url = "https://github.com/ekalinin/Dockerfile.vim"
-  },
-  ["FTerm.nvim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/FTerm.nvim",
-    url = "https://github.com/numToStr/FTerm.nvim"
-  },
   LuaSnip = {
+    config = { "\27LJ\2\n‰\1\0\0\3\0\a\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\tload luasnip.loaders.from_vscode\1\0\1\fhistory\1\nsetup\vconfig\fluasnip\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = true,
@@ -101,6 +92,11 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/ayu-vim",
     url = "https://github.com/ayu-theme/ayu-vim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -115,11 +111,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/darcula",
     url = "https://github.com/doums/darcula"
-  },
-  ["delaytrain.nvim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/delaytrain.nvim",
-    url = "https://github.com/ja-ford/delaytrain.nvim"
   },
   ["editorconfig-vim"] = {
     loaded = true,
@@ -146,11 +137,6 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
-  ["fzf-checkout.vim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/fzf-checkout.vim",
-    url = "https://github.com/stsewd/fzf-checkout.vim"
-  },
   ["fzf.vim"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/fzf.vim",
@@ -160,11 +146,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
     url = "https://github.com/f-person/git-blame.nvim"
-  },
-  ["git-worktree.nvim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
-    url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
   gruvbox = {
     loaded = true,
@@ -181,10 +162,21 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["langmapper.nvim"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15langmapper\frequire\0" },
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/langmapper.nvim",
+    url = "https://github.com/Wansmer/langmapper.nvim"
+  },
   ["lexima.vim"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lexima.vim",
     url = "https://github.com/cohama/lexima.vim"
+  },
+  ["lsp-inlayhints.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
+    url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -216,6 +208,11 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
+  nvim = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["nvim-bqf"] = {
     loaded = false,
     needs_bufread = true,
@@ -232,6 +229,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim-curly",
     url = "https://github.com/kuwerin/nvim-curly"
+  },
+  ["nvim-lsp-ts-utils"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim-lsp-ts-utils",
+    url = "https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -252,11 +254,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
-  },
-  ["nvim-yarp"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/nvim-yarp",
-    url = "https://github.com/roxma/nvim-yarp"
   },
   ["oceanic-next"] = {
     loaded = true,
@@ -318,11 +315,6 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
   },
-  ["vim-black-macchiato"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-black-macchiato",
-    url = "https://github.com/smbl64/vim-black-macchiato"
-  },
   ["vim-dadbod"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod",
@@ -353,25 +345,15 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-go",
     url = "https://github.com/fatih/vim-go"
   },
-  ["vim-hug-neovim-rpc"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
-    url = "https://github.com/roxma/vim-hug-neovim-rpc"
-  },
-  ["vim-json"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-json",
-    url = "https://github.com/elzr/vim-json"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
-  ["vim-toml"] = {
+  ["vscode.nvim"] = {
     loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-toml",
-    url = "https://github.com/cespare/vim-toml"
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   },
   ["wilder.nvim"] = {
     loaded = true,
@@ -381,10 +363,19 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: langmapper.nvim
+time([[Config for langmapper.nvim]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15langmapper\frequire\0", "config", "langmapper.nvim")
+time([[Config for langmapper.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd friendly-snippets ]]
+vim.cmd [[ packadd nvim-cmp ]]
 vim.cmd [[ packadd LuaSnip ]]
+
+-- Config for: LuaSnip
+try_loadstring("\27LJ\2\n‰\1\0\0\3\0\a\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\tload luasnip.loaders.from_vscode\1\0\1\fhistory\1\nsetup\vconfig\fluasnip\frequire\0", "config", "LuaSnip")
+
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
