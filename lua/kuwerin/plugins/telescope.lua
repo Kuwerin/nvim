@@ -1,10 +1,10 @@
 -- Telescope
 
-Telescope = require("telescope")
+local telescope = require('telescope')
 
-Telescope.load_extension('harpoon')
+telescope.load_extension('notify')
 
-Telescope.setup{
+telescope.setup{
   pickers = {
     find_files = {
       theme = PREF.ui.telescope.default_theme,

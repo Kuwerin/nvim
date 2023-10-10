@@ -16,18 +16,18 @@ return require("packer").startup(function(use)
   -- LSP signature help
   use "ray-x/lsp_signature.nvim"
 
+  -- Notifications
+  use 'rcarriga/nvim-notify'
+
   -- Inlay hints
   use "lvimuser/lsp-inlayhints.nvim"
 
   -- LSP status
-  use "j-hui/fidget.nvim"
-
-  -- Harpoon
-  use "ThePrimeagen/harpoon"
+  use 'mrded/nvim-lsp-notify'
 
   -- Telescope
   use {
-    "nvim-telescope/telescope.nvim", tag = "0.1.0",
+    "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
@@ -40,7 +40,7 @@ return require("packer").startup(function(use)
   use "f-person/git-blame.nvim"
 
   -- Syntax highlight/AST
-  use {"nvim-treesitter/nvim-treesitter", tag = "v0.7.2"}
+  use {"nvim-treesitter/nvim-treesitter", tag = "v0.9.1"}
   use "nvim-treesitter/nvim-treesitter-context"
 
   -- Snippets
@@ -56,7 +56,7 @@ return require("packer").startup(function(use)
   }
 
   -- Better quickfix
-  use {"kevinhwang91/nvim-bqf", ft = "qf"}
+   use "kevinhwang91/nvim-bqf"
 
   -- Undo
   use "mbbill/undotree"
@@ -103,14 +103,6 @@ return require("packer").startup(function(use)
    },
   })
 
- -- Langmapper
-  use({
-  'Wansmer/langmapper.nvim',
-  config = function()
-    require('langmapper').setup({--[[ your config ]]})
-  end,
-  })
-
   -- Nvim-cURLy
   use "kuwerin/nvim-curly"
 
@@ -118,6 +110,9 @@ return require("packer").startup(function(use)
   use "edkolev/tmuxline.vim"
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
+
+  -- Identation guides.
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Themes
   use "folke/tokyonight.nvim"

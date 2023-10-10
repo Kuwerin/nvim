@@ -5,6 +5,12 @@ local tsutils = require('nvim-lsp-ts-utils')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  if client.server_capabilities.inlayHintProvider then
+    vim.g.inlay_hints_visible = true
+    vim.lsp.inlay_hint(bufnr, true)
+  else
+    print("no inlay hints available")
+  end
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -112,4 +118,5 @@ require "lsp_signature".setup({
     border = PREF.ui.border,
   },
   hint_prefix = " ",
+  hint_enable = false,
 })

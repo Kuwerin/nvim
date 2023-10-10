@@ -1,4 +1,7 @@
-vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = 'frappe' -- latte, frappe, macchiato, mocha
+
+vim.g.airline_theme = 'catppuccin'
+
 local mocha = require('catppuccin.palettes').get_palette('mocha')
 
 require('catppuccin').setup({
@@ -14,7 +17,7 @@ require('catppuccin').setup({
     path = vim.fn.stdpath('cache') .. '/catppuccin',
   },
   styles = {
-    comments = PREF.ui.italic_comment and { 'italic' } or {},
+    comments = PREF.ui.italic and { 'italic' } or {},
     conditionals = { 'italic' },
     loops = { 'italic' },
     functions = { 'bold' },
@@ -43,6 +46,7 @@ require('catppuccin').setup({
         warnings = { 'underline' },
         information = { 'underline' },
       },
+      inlay_hints = { background = false }
     },
     coc_nvim = false,
     lsp_trouble = false,
@@ -60,7 +64,7 @@ require('catppuccin').setup({
     neotree = {
       enabled = true,
       show_root = true,
-      transparent_panel = false,
+      transparent_panel = true,
     },
     dap = {
       enabled = false,

@@ -24,6 +24,10 @@ nnoremap("<C-u>", "<C-u>zz", silent)
 nnoremap("n", "nzzzv", silent)
 nnoremap("N", "Nzzzv", silent)
 nnoremap("Q", "<nop>", silent)
+nnoremap("<Space>", "<Nop>")
+
+-- Refresh
+nnoremap("<leader>t", "<cmd>:checktime<CR>", silent)
 
 -- LuaSnip
 inoremap("<C-e>", "<cmd>lua require('luasnip').jump(1)<CR>")
@@ -64,14 +68,6 @@ nnoremap("<leader>ff", ":Telescope find_files<CR>", silent)
 nnoremap("<leader>fb", ":Telescope buffers<CR>", silent)
 nnoremap("<leader>fh", ":Telescope help_tags<CR>", silent)
 
--- Harpoon
-nnoremap("<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", silent)
-nnoremap("<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", silent)
-nnoremap("<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", silent)
-nnoremap("<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", silent)
-nnoremap("<leader>tq", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", silent)
-nnoremap("<leader>af", ":lua require('harpoon.mark').add_file()<CR>", silent)
-
 -- Worktree
 nnoremap("<leader>fw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", silent)
 nnoremap("<leader>cw", ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", silent)
@@ -91,8 +87,8 @@ nnoremap("<leader>al", "<cmd>:GoMetaLinterAutoSaveToggle<CR>", silent)
 nnoremap("<leader>rl", "<cmd>:GoMetaLinter<CR>", silent)
 
 -- Move visual block up and down
-vnoremap("J", ":m  '>+1<CR>gv=gv")
-vnoremap("K", ":m  '<-2<CR>gv=gv")
+vnoremap("J", ":m  '>+1<CR>gv=gv", silent)
+vnoremap("K", ":m  '<-2<CR>gv=gv", silent)
 
 -- System buffer integration
 nnoremap("<leader>y", "\"+y")

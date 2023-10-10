@@ -1,7 +1,7 @@
 -- Application before-load settings
 
 vim.g.rnu = true
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 vim.opt.nu = true
 vim.opt.cul = true
 vim.opt.relativenumber = true
@@ -32,6 +32,9 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+
+-- Notifications
+vim.notify = require("notify")
 
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
