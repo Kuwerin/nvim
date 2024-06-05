@@ -46,7 +46,7 @@ require('catppuccin').setup({
         warnings = { 'underline' },
         information = { 'underline' },
       },
-      inlay_hints = { background = false }
+      inlay_hints = { background = true }
     },
     coc_nvim = false,
     lsp_trouble = false,

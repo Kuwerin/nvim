@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?.lua;/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?/init.lua;/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?.lua;/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1696795921/lib/lua/5.1/?.so"
+local package_path_str = "/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/kuwerin/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -162,16 +162,6 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lexima.vim",
     url = "https://github.com/cohama/lexima.vim"
   },
-  ["lsp-inlayhints.nvim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
-    url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
-  },
-  ["lsp_signature.nvim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-    url = "https://github.com/ray-x/lsp_signature.nvim"
-  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -186,6 +176,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["noice.nvim"] = {
+    loaded = true,
+    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/noice.nvim",
+    url = "https://github.com/folke/noice.nvim"
   },
   ["nord-vim"] = {
     loaded = true,
@@ -312,26 +307,6 @@ _G.packer_plugins = {
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
   },
-  ["vim-dadbod"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod",
-    url = "https://github.com/tpope/vim-dadbod"
-  },
-  ["vim-dadbod-completion"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
-    url = "https://github.com/kristijanhusak/vim-dadbod-completion"
-  },
-  ["vim-dadbod-ui"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
-    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
-  },
-  ["vim-dotenv"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-dotenv",
-    url = "https://github.com/tpope/vim-dotenv"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -351,19 +326,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/vscode.nvim",
     url = "https://github.com/Mofiqul/vscode.nvim"
-  },
-  ["wilder.nvim"] = {
-    loaded = true,
-    path = "/Users/kuwerin/.local/share/nvim/site/pack/packer/start/wilder.nvim",
-    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd friendly-snippets ]]
 vim.cmd [[ packadd nvim-cmp ]]
+vim.cmd [[ packadd friendly-snippets ]]
 vim.cmd [[ packadd LuaSnip ]]
 
 -- Config for: LuaSnip

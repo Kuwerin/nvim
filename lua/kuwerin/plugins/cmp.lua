@@ -4,11 +4,11 @@ local cmp = require 'cmp'
 
 cmp.setup {
   window = {
-    completion = { -- rounded border; thin-style scrollbar
+    completion = {
       border = PREF.ui.border,
       scrollbar = PREF.ui.scrollbar,
     },
-    documentation = { -- no border; native-style scrollbar
+    documentation = {
       border = PREF.ui.border,
       scrollbar = PREF.ui.scrollbar,
     },

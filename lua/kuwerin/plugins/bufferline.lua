@@ -20,7 +20,7 @@ require("bufferline").setup({
     color_icons = true,
     show_buffer_icons = true,
     show_buffer_close_icons = true,
-    show_buffer_default_icon = true,
+--    get_element_icon = function (buf) return require("nvim-web-devicons").get_icon(buf, {default=true}) end,
     show_close_icon = true,
     show_tab_indicators = true,
     persist_buffer_sort = true,

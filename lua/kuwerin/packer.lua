@@ -14,13 +14,10 @@ return require("packer").startup(function(use)
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
   -- LSP signature help
-  use "ray-x/lsp_signature.nvim"
+  use "folke/noice.nvim"
 
   -- Notifications
   use 'rcarriga/nvim-notify'
-
-  -- Inlay hints
-  use "lvimuser/lsp-inlayhints.nvim"
 
   -- LSP status
   use 'mrded/nvim-lsp-notify'
@@ -89,19 +86,16 @@ return require("packer").startup(function(use)
   use "cohama/lexima.vim"
   use "tpope/vim-surround"
 
-  -- Wildmenu
-  use "gelguy/wilder.nvim"
-
   -- Bufferline
-  use {'akinsho/bufferline.nvim', tag = "v3.*"}
+  use "akinsho/bufferline.nvim"
 
   -- SQL client
-  use({ "kristijanhusak/vim-dadbod-ui", requires = {
-    "tpope/vim-dadbod",
-    "kristijanhusak/vim-dadbod-completion",
-    "tpope/vim-dotenv",
-   },
-  })
+ -- use({ "kristijanhusak/vim-dadbod-ui", requires = {
+ --   "tpope/vim-dadbod",
+ --   "kristijanhusak/vim-dadbod-completion",
+ --   "tpope/vim-dotenv",
+ --  },
+ -- })
 
   -- Nvim-cURLy
   use "kuwerin/nvim-curly"

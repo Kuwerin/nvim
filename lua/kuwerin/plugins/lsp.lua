@@ -7,7 +7,7 @@ local tsutils = require('nvim-lsp-ts-utils')
 local on_attach = function(client, bufnr)
   if client.server_capabilities.inlayHintProvider then
     vim.g.inlay_hints_visible = true
-    vim.lsp.inlay_hint(bufnr, true)
+    vim.lsp.inlay_hint.enable()
   else
     print("no inlay hints available")
   end
@@ -26,13 +26,6 @@ local on_attach = function(client, bufnr)
     },
   })
 
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover, {
-          border = PREF.ui.border,
-          scrollbar = PREF.ui.scrollbar,
-          source = 'always',
-          }
-      )
 end
 
 -- Check if it's already defined for when reloading this file.
@@ -52,7 +45,7 @@ if not configs.pls then
 end
 
 -- Common LSP setup
-local servers = {'pyright', 'solargraph', 'lua_ls', 'pls'}
+local servers = {'pyright', 'lua_ls', 'pls'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -93,10 +86,7 @@ lspconfig.gopls.setup {
         staticcheck = true,
       },
     },
-    on_attach=function (c,b)
-      require("lsp-inlayhints").on_attach(c, b)
-      on_attach(c,b)
-    end,
+    on_attach=on_attach,
     flags = {
       debounce_text_changes = 150,
     }
@@ -112,11 +102,67 @@ lspconfig.clangd.setup{
 }
 
 -- LSP always-show signature
-require "lsp_signature".setup({
-  bind = true, -- This is mandatory, otherwise border config won't get registered.
-  handler_opts = {
-    border = PREF.ui.border,
+require("noice").setup({
+  lsp = {
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+    },
   },
-  hint_prefix = " ",
-  hint_enable = false,
+    views = {
+      cmdline_popup = {
+        position = {
+          row = 5,
+          col = "50%",
+        },
+        size = {
+          width = 60,
+          height = "auto",
+        },
+      },
+      popupmenu = {
+        relative = "editor",
+        position = {
+          row = 8,
+          col = "50%",
+        },
+        size = {
+          width = 60,
+          height = 10,
+        },
+        border = {
+          style = PREF.ui.border,
+          padding = { 0, 1 },
+        },
+        win_options = {
+          winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+        },
+    },
+  },
+    cmdline = {
+      format = {
+        search_down = {
+          view = "cmdline",
+        },
+        search_up = {
+          view = "cmdline",
+        },
+      },
+    },
+   hover = {
+      enabled = true,
+      border = PREF.ui.border,
+    },
+    messages = {
+    -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+    -- This is a current Neovim limitation.
+      enabled = false, -- enables the Noice messages UI
+  },
+  presets = {
+    bottom_search = true, -- use a classic bottom cmdline for search
+    command_palette = true,
+    long_message_to_split = true, -- long messages will be sent to a split
+    lsp_doc_border = PREF.ui.border, -- add a border to hover docs and signature help
+  },
 })
