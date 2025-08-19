@@ -9,6 +9,8 @@ local vnoremap = Remap.vnoremap
 
 local silent = { silent = true }
 
+vim.g.mapleader = " "
+
 -- Base remaps
 inoremap("jk", "<Esc>", silent)
 inoremap("jK", "<Esc>", silent)

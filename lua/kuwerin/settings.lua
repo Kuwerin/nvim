@@ -50,7 +50,7 @@ vim.opt.shortmess:append("c")
 vim.g.lexima_enable_newline_rules = 1
 
 -- Leader key
-vim.g.mapleader = " "
+--vim.g.mapleader = " "
 
 -- Vim-Go setup
 vim.g.go_fmt_command = 'gopls'
@@ -59,6 +59,9 @@ vim.g.go_fmt_autosave = 1
 vim.g.go_mod_fmt_autosave = 1
 vim.g.go_doc_keywordprg_enabled = 0
 vim.g.go_metalinter_command='golangci-lint run'
+
+
+--vim.g.lightline = 'catppuccin_frappe'
 
 -- Undotree setup
 vim.g.undotree_SplitWidth=25
@@ -74,6 +77,9 @@ vim.g.gitblame_enabled = 0
 vim.g.gitblame_date_format = '%c (%r)'
 vim.g.gitblame_message_template = '<author> • <summary> • <date> '
 vim.g.gitblame_ignored_filetypes = {'gitcommit'}
+
+-- Fixes
+vim.g.parinfer_mode = 0
 
 -- Airline setup
 vim.g.airline_powerline_fonts = 1

@@ -19,5 +19,5 @@ end
 local present, _ = pcall(vim.cmd.colorscheme, colorscheme)
 
 if not present then
-  vim.cmd.colorscheme('darcula')
+  vim.cmd.colorscheme('catppuccin')
 end

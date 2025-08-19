@@ -1,8 +1,7 @@
 vim.g.catppuccin_flavour = 'frappe' -- latte, frappe, macchiato, mocha
-
 vim.g.airline_theme = 'catppuccin'
 
-local mocha = require('catppuccin.palettes').get_palette('mocha')
+local mocha = require('catppuccin.palettes').get_palette('frappe')
 
 require('catppuccin').setup({
   dim_inactive = {
@@ -11,7 +10,7 @@ require('catppuccin').setup({
     percentage = 0.15,
   },
   transparent_background = false,
-  term_colors = false,
+  term_colors = true,
   compile = {
     enabled = true,
     path = vim.fn.stdpath('cache') .. '/catppuccin',

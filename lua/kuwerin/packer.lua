@@ -17,10 +17,13 @@ return require("packer").startup(function(use)
   use "folke/noice.nvim"
 
   -- Notifications
-  use 'rcarriga/nvim-notify'
+  use {'rcarriga/nvim-notify', tag = 'v3.14.0'}
 
   -- LSP status
   use 'mrded/nvim-lsp-notify'
+
+  -- LSP pretty refs,defs, impls.
+  use 'dnlhc/glance.nvim'
 
   -- Telescope
   use {
@@ -46,10 +49,6 @@ return require("packer").startup(function(use)
   use {
     "L3MON4D3/LuaSnip",
     after = {"friendly-snippets", "nvim-cmp"},
-    config = function()
-      require("luasnip").config.setup({ history = false })
-      require("luasnip.loaders.from_vscode").load {}
-    end,
   }
 
   -- Better quickfix
@@ -104,6 +103,7 @@ return require("packer").startup(function(use)
   use "edkolev/tmuxline.vim"
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
+  --use 'catppuccin/vim'
 
   -- Identation guides.
   use "lukas-reineke/indent-blankline.nvim"
