@@ -1,4 +1,6 @@
-require("bufferline").setup({
+local bufferline = require 'bufferline'
+
+bufferline.setup({
   options = {
     mode = 'buffers',
     numbers = 'none',

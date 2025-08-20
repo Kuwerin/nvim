@@ -1,6 +1,7 @@
 -- Autocomplete setup
 local lspkind = require 'lspkind'
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
 
 cmp.setup {
   window = {
@@ -17,12 +18,12 @@ cmp.setup {
     format = lspkind.cmp_format({
       mode = 'symbol_text',
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      ellipsis_char = "..."
+      ellipsis_char = '...'
     }),
   },
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -44,3 +45,4 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+

@@ -1,7 +1,7 @@
 -- Application before-load settings
 
 vim.g.rnu = true
-vim.opt.mouse = "a"
+vim.opt.mouse = 'a'
 vim.opt.nu = true
 vim.opt.cul = true
 vim.opt.relativenumber = true
@@ -21,7 +21,7 @@ vim.opt.wrap = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.opt.undofile = true
 
 vim.opt.hlsearch = true
@@ -30,11 +30,11 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+vim.opt.signcolumn = 'yes'
+vim.opt.isfname:append('@-@')
 
 -- Notifications
-vim.notify = require("notify")
+vim.notify = require('notify')
 
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
@@ -44,13 +44,13 @@ vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 
 -- Don't pass messages to |ins-completion-menu|.
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append('c')
 
 -- Autopairs
 vim.g.lexima_enable_newline_rules = 1
 
 -- Leader key
---vim.g.mapleader = " "
+--vim.g.mapleader = ' '
 
 -- Vim-Go setup
 vim.g.go_fmt_command = 'gopls'
@@ -70,7 +70,7 @@ vim.g.undotree_SplitWidth=25
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_show_help = 0
-vim.g.db_ui_win_position = "right"
+vim.g.db_ui_win_position = 'right'
 
 -- Gitblame
 vim.g.gitblame_enabled = 0
@@ -85,13 +85,18 @@ vim.g.parinfer_mode = 0
 vim.g.airline_powerline_fonts = 1
 vim.g.material_terminal_italics = 1
 
-vim.cmd("syntax on")
-vim.cmd("set diffopt=vertical")
-vim.cmd("set wildcharm=<C-z>")
-vim.cmd("set signcolumn=yes")
+vim.cmd('syntax on')
+vim.cmd('set diffopt=vertical')
+vim.cmd('set wildcharm=<C-z>')
+vim.cmd('set signcolumn=yes')
 
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+local signs = { Error = '', Warn = '', Hint = '', Info = '' }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
+  local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+vim.o.winborder = 'rounded'
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
