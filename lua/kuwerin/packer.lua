@@ -79,7 +79,16 @@ return require('packer').startup(function(use)
   -- Visual
 
   -- LSP signature help
-  use 'folke/noice.nvim'
+  use {
+    'folke/noice.nvim',
+    requires = {
+      "nvim-lua/popup.nvim",
+      "MunifTanjim/nui.nvim",
+    }
+  }
+
+  -- For code actions only.
+  use 'stevearc/dressing.nvim'
 
   -- Notifications
   use {'rcarriga/nvim-notify', tag = 'v3.14.0'}
